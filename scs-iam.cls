@@ -9,7 +9,13 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+%%% Identification
+
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{scs-iam}[2017/09/02 SCS IAM dissertation class]
 
-\LoadClass[a4paper]{article}
+
+%%% Loading 'extarticle' class
+
+\LoadClass[a4paper,14pt]{extarticle}
