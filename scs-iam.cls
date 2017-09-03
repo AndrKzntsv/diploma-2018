@@ -19,3 +19,16 @@
 %%% Loading 'extarticle' class
 
 \LoadClass[a4paper,14pt]{extarticle}
+
+
+%%% Geometry
+
+\RequirePackage{geometry}
+
+\geometry{
+  top=20mm,
+  bottom=20mm,
+  right=10mm,
+  left=20mm,
+  bindingoffset=0cm
+}
