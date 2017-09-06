@@ -24,6 +24,8 @@
 
 \LoadClass[a4paper,14pt]{extarticle}
 
+\RequirePackage{hyperref}
+
 
 % ---------------------------------------------------------------------------- %
 %                                   Geometry                                   %
@@ -104,3 +106,19 @@
     {1em}
     {}
 \fi
+
+% Automatically add numberless sections to TOC
+\RequirePackage{xparse}
+\NewDocumentCommand{\mysection}{s o m}{
+  \IfNoValueTF{#2}
+    {\global\edef\chapToCname{#3}}
+    {\global\edef\chapToCname{#2}}
+  \IfBooleanTF{#1}
+    { % \mysection*
+     \section*{#3}
+     \phantomsection
+     \addcontentsline{toc}{section}{\chapToCname}
+    }{ % \mysection
+     \section[\chapToCname]{#3}
+    }
+}
