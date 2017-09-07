@@ -35,8 +35,8 @@
 \geometry{
   top=20mm,
   bottom=20mm,
-  right=10mm,
-  left=20mm,
+  right=15mm,
+  left=30mm,
   bindingoffset=0cm
 }
 
