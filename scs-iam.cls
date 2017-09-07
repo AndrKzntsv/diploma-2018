@@ -114,11 +114,11 @@
     {\global\edef\chapToCname{#3}}
     {\global\edef\chapToCname{#2}}
   \IfBooleanTF{#1}
-    { % \mysection*
+    {
      \section*{#3}
      \phantomsection
      \addcontentsline{toc}{section}{\chapToCname}
-    }{ % \mysection
+    }{
      \section[\chapToCname]{#3}
     }
 }
