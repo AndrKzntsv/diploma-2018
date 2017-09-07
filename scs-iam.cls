@@ -42,6 +42,24 @@
 
 
 % ---------------------------------------------------------------------------- %
+%                                Cyrillic fonts                                %
+% ---------------------------------------------------------------------------- %
+
+\RequirePackage{xecyr}	
+\RequirePackage{xunicode}
+
+\RequirePackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+\setmainfont{Times New Roman}
+\newfontfamily{\cyrillicfont}{Times New Roman}
+\newfontfamily{\cyrillicfontsf}{Arial}
+\newfontfamily{\cyrillicfonttt}{Courier New}
+
+\RequirePackage{polyglossia}
+\setdefaultlanguage[spelling=modern]{russian}
+
+
+% ---------------------------------------------------------------------------- %
 %                             Lengths and spacing                              %
 % ---------------------------------------------------------------------------- %
 
