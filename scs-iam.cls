@@ -70,6 +70,19 @@
 
 
 % ---------------------------------------------------------------------------- %
+%                                 Page styles                                  %
+% ---------------------------------------------------------------------------- %
+
+\def\ps@headcenter{
+  \let\@mkboth\@gobbletwo
+  \def\@oddhead{\reset@font\hfil\thepage\hfil}
+  \def\@evenhead{\reset@font\hfil\thepage\hfil}
+  \let\@oddfoot\@empty
+  \let\@evenfoot\@empty
+}
+
+
+% ---------------------------------------------------------------------------- %
 %                                    Titles                                    %
 % ---------------------------------------------------------------------------- %
 
@@ -93,16 +106,42 @@
 \ProcessOptions\relax
 
 \if@ctitles
-  \titleformat{name=\section}[block]{\large\centering\bfseries}{\thesection}{.5em}{}
-  \titleformat{name=\section,numberless}[block]{\large\centering\bfseries}{}{0pt}{}  
-  \titleformat{name=\subsection}[block]{\normalsize\centering\bfseries}{\thesubsection}{.5em}{}  
-  \titleformat{name=\subsubsection}[block]{\normalsize\centering\bfseries}{\thesubsubsection}{.5em}{}
+  \titleformat{name=\section}
+    [block]
+    {\large\centering\bfseries}
+    {\thesection}
+    {.5em}
+    {}
+  \titleformat{name=\section,numberless}
+    [block]
+    {\large\centering\bfseries}
+    {}
+    {0pt}
+    {}  
+  \titleformat{name=\subsection}
+    [block]
+    {\normalsize\centering\bfseries}
+    {\thesubsection}
+    {.5em}
+    {}  
+  \titleformat{name=\subsubsection}
+    [block]
+    {\normalsize\centering\bfseries}
+    {\thesubsubsection}
+    {.5em}
+    {}
     
   \titlespacing{\section}{0pt}{\parskip}{.5em}
   \titlespacing{\subsection}{0pt}{.5em}{.25em}
   \titlespacing{\subsubsection}{0pt}{.5em}{0em}
 \fi
 \if@ltitles
+  \titleformat{name=\section}
+    [block]
+    {\large\bfseries}
+    {\hspace*{1.27cm}\thesection}
+    {1em}
+    {}
   \titleformat{name=\section,numberless}
     [block]
     {\large\bfseries}
