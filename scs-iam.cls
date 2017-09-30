@@ -195,3 +195,13 @@
 \setlist[dashitemize]{
   itemsep=-.5ex,topsep=0pt,leftmargin=0cm,itemindent=1.8cm,label=--
 }
+
+\newlist{numitemize}{enumerate}{3}
+\setlist[numitemize]{
+  itemsep=-.5ex,topsep=0pt,leftmargin=0cm,itemindent=1.91cm,label=\arabic*)
+}
+
+\newlist{alphitemize}{enumerate}{3}
+\setlist[alphitemize]{
+  itemsep=-.5ex,topsep=0pt,leftmargin=0cm,itemindent=1.91cm,label=\asbuk*)
+}
