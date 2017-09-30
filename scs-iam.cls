@@ -179,3 +179,19 @@
      \section[\chapToCname]{#3}
     }
 }
+
+
+% ---------------------------------------------------------------------------- %
+%                                    Lists                                     %
+% ---------------------------------------------------------------------------- %
+
+\RequirePackage{enumitem}
+
+\makeatletter
+\AddEnumerateCounter{\asbuk}{\russian@alph}{щ}
+\makeatother
+
+\newlist{dashitemize}{enumerate}{3}
+\setlist[dashitemize]{
+  itemsep=-.5ex,topsep=0pt,leftmargin=0cm,itemindent=1.8cm,label=--
+}
