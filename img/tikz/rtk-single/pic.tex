@@ -19,18 +19,56 @@
   \pgfusepath{fill}
 }
 
+\tikzset{
+  boat/.pic={
+    code={
+      \coordinate (bow) at (0,0);
+      \coordinate (stern) at (4,-1.25);
+
+      \coordinate (stern_left_top) at ($ (stern) + (-0.75,-0.25) $);
+      \coordinate (stern_left_bottom) at ($ (stern_left_top) + (0,-0.5) $);
+      \coordinate (stern_right_top) at ($ (stern) + (0.75,0.25) $);
+      \coordinate (stern_right_bottom) at ($ (stern_right_top) + (0,-0.5) $);
+
+      \draw (bow) -- (stern);
+      \draw (stern_left_top) -- (stern_right_top);
+      \draw (stern_left_top) -- (stern_left_bottom);
+      \draw (stern_right_top) -- (stern_right_bottom);
+
+      \draw (stern_right_bottom) to[out=-125,in=-15,looseness=0.8] (stern_left_bottom);
+
+      \draw (bow) to[out=-45,in=-190,looseness=0.8] (stern_left_top);
+      \draw (bow) to[out=-75,in=-190,looseness=0.8] (stern_left_bottom);
+      \draw (bow) to[out=0,in=160,looseness=0.5] (stern_right_top);
+
+      \coordinate (mast_bottom) at ($ (bow)!0.6!(stern) $);
+      \coordinate (mast_bottom_left) at ($ (mast_bottom) + (-0.05,0.03) $);
+      \coordinate (mast_bottom_right) at ($ (mast_bottom) + (0.05,-0.03) $);
+      \coordinate (mast_top) at ($ (mast_bottom) + (0,3) $);
+      \coordinate (mast_top_left) at ($ (mast_top) + (-0.05,0.03) $);
+      \coordinate (mast_top_right) at ($ (mast_top) + (0.05,-0.03) $);
+
+      % \draw (mast_bottom) -- (mast_top);
+      \draw (mast_bottom_left) -- (mast_top_left);
+      \draw (mast_bottom_right) -- (mast_top_right);
+    }
+  }
+}
+
 \begin{document}
 \begin{tikzpicture}[domain=0:20,samples=300]
   \draw[step=1cm,black,thin,opacity=0.2,dashed] (20.9,-0.9) grid (-0.9,15.9);
-  
+
   \draw[name path=land edge] (0,8) -- (0,0) -- (12,0);
   \draw[name path=other edge] (0,8) -- (0,15) -- (20,15) -- (20,0) -- (12,0);
-  
+
   \draw[name path=coast] (12,0) .. controls (10,4) and (9,3) .. (5,6) .. controls (4,7) and (1,7) .. (0,8);
   \tikzfillbetween[
     of=land edge and coast
   ] {pattern=my crosshatch dots};
-  
+
   \draw plot(\x,{sin(14 * \x r) / 16 + 12});
+
+  \path (10,6) pic {boat};
 \end{tikzpicture}
 \end{document}
