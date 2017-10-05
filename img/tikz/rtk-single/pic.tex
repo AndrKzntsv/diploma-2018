@@ -70,12 +70,17 @@
       \coordinate (js_bottom_corner) at ($ (js_top_corner) + (-0.3,-3.5) $);
       \coordinate (js_left_corner) at ($ (bow) + (0.1,0.1) $);
       
-      \draw[name path=js angle,thick] (js_top_corner) -- (js_bottom_corner) -- (js_left_corner);
+      \draw[name path=js arcs,thick] 
+        (js_top_corner)
+        to[out=-100,in=95,looseness=0.7]
+        (js_bottom_corner)
+        to[out=170,in=-55,looseness=0.7]
+        (js_left_corner);
       % \draw[name path=js arc,thick] ($ (js_left_corner) + (0.008,-0.008) $) to[out=90,in=180,looseness=0.3] ($ (js_top_corner) + (0.008,-0.008) $);
-      \draw[name path=js arc,thick] (js_left_corner) -- (js_top_corner);
+      \draw[name path=js edge,thick] (js_left_corner) -- (js_top_corner);
       
       \tikzfillbetween[
-        of=js angle and js arc
+        of=js arcs and js edge
       ] {white};
       
       \draw[thick,line cap=round,dash pattern=on 0 off 1cm/32] (mast_top_left) -- ($ (js_top_corner) + (0.003,0) $);
