@@ -43,10 +43,10 @@
       \draw (bow) to[out=0,in=160,looseness=0.5] (stern_right_top);
 
       % Mast
-      \coordinate (mast_bottom) at ($ (bow)!0.45!(stern) $);
+      \coordinate (mast_bottom) at ($ (bow)!0.4!(stern) $);
       \coordinate (mast_bottom_left) at ($ (mast_bottom) + (-0.05,0.03) $);
       \coordinate (mast_bottom_right) at ($ (mast_bottom) + (0.05,-0.03) $);
-      \coordinate (mast_top) at ($ (mast_bottom) + (0,3) $);
+      \coordinate (mast_top) at ($ (mast_bottom) + (0,3.5) $);
       \coordinate (mast_top_left) at ($ (mast_top) + (-0.05,0.03) $);
       \coordinate (mast_top_right) at ($ (mast_top) + (0.05,-0.01) $);
 
@@ -66,12 +66,13 @@
       ] {white};
       
       % Jib sail
-      \coordinate (js_top_corner) at ($ (mast_top_left) + (-0.1,-0.4) $);
-      \coordinate (js_bottom_corner) at ($ (js_top_corner) + (0,-2.26) $);
-      \coordinate (js_left_corner) at ($ (bow) + (0.2,0.28) $);
+      \coordinate (js_top_corner) at ($ (mast_top_left) + (-0.05,-0.05) $);
+      \coordinate (js_bottom_corner) at ($ (js_top_corner) + (-0.3,-3.5) $);
+      \coordinate (js_left_corner) at ($ (bow) + (0.1,0.1) $);
       
       \draw[name path=js angle,thick] (js_top_corner) -- (js_bottom_corner) -- (js_left_corner);
-      \draw[name path=js arc,thick] ($ (js_left_corner) + (0.008,-0.008) $) to[out=90,in=180,looseness=0.3] ($ (js_top_corner) + (0.008,-0.008) $);
+      % \draw[name path=js arc,thick] ($ (js_left_corner) + (0.008,-0.008) $) to[out=90,in=180,looseness=0.3] ($ (js_top_corner) + (0.008,-0.008) $);
+      \draw[name path=js arc,thick] (js_left_corner) -- (js_top_corner);
       
       \tikzfillbetween[
         of=js angle and js arc
@@ -80,10 +81,13 @@
       \draw[thick,line cap=round,dash pattern=on 0 off 1cm/32] (mast_top_left) -- ($ (js_top_corner) + (0.003,0) $);
       
       % Boom
-      \coordinate (boom_top_left) at ($ (js_left_corner) + (0,-0.07) $);
-      \coordinate (boom_top_right) at ($ (js_bottom_corner) + (0.09,-0.1) $);
+      % \coordinate (boom_top_left) at ($ (js_left_corner) + (0,-0.07) $);
+      % \coordinate (boom_bottom_left) at ($ (boom_top_left) + (0,-0.1) $);
+      % \coordinate (boom_top_right) at ($ (js_bottom_corner) + (0.09,-0.1) $);
+      % \coordinate (boom_bottom_right) at ($ (boom_top_right) + (0,-0.1) $);
       
-      \draw (boom_top_left) -- (boom_top_right);
+      % \draw (boom_top_left) -- (boom_top_right);
+      % \draw (boom_bottom_left) -- (boom_bottom_right);
     }
   }
 }
