@@ -38,7 +38,7 @@
       \coordinate (stern_right_top) at ($ (stern) + (0.75,0.25) $);
       \coordinate (stern_right_bottom) at ($ (stern_right_top) + (0,-0.5) $);
 
-      \draw[gray,dotted] (bow) -- (stern);
+      % \draw[gray,dotted] (bow) -- (stern);
       \draw (stern_left_top) -- (stern_right_top);
       \draw (stern_left_top) -- (stern_left_bottom);
       \draw (stern_right_top) -- (stern_right_bottom);
@@ -48,6 +48,18 @@
       \draw (bow) to[out=-45,in=-190,looseness=0.8] (stern_left_top);
       \draw (bow) to[out=-75,in=-190,looseness=0.8] (stern_left_bottom);
       \draw (bow) to[out=0,in=160,looseness=0.5] (stern_right_top);
+      
+      \draw
+        ($ (stern_left_top) + (0,0.05) $)
+        --
+        ($ (stern_right_top) + (-0.15,0) $)
+        to[out=160,in=-10,looseness=0.4]
+        ($ (stern_right_top) + (-2.45,0.6) $)
+        --
+        ($ (stern_left_top) + (-2.15,0.8) $)
+        to[out=-35,in=-190,looseness=0.6]
+        ($ (stern_left_top) + (0,0.05) $);
+      % \draw ($ (stern_right_top) + (-2.45,0.6) $) -- ($ (stern_right_top) + (-2.45,0) $);
 
       % Mast
       \coordinate (mast_bottom) at ($ (bow)!0.4!(stern) $);
@@ -83,7 +95,6 @@
         (js_bottom_corner)
         to[out=170,in=-55,looseness=0.7]
         (js_left_corner);
-      % \draw[name path=js arc,thick] ($ (js_left_corner) + (0.008,-0.008) $) to[out=90,in=180,looseness=0.3] ($ (js_top_corner) + (0.008,-0.008) $);
       \draw[name path=js edge,thick] (js_left_corner) to[out=80,in=-130,looseness=0.7] (js_top_corner);
       
       \tikzfillbetween[
@@ -95,13 +106,52 @@
       \draw[thick,dots] ($ (js_bottom_corner) + (0.5,-0.52) $) -- ($ (js_bottom_corner) + (0.003,0) $);
       
       % Boom
-      % \coordinate (boom_top_left) at ($ (js_left_corner) + (0,-0.07) $);
-      % \coordinate (boom_bottom_left) at ($ (boom_top_left) + (0,-0.1) $);
-      % \coordinate (boom_top_right) at ($ (js_bottom_corner) + (0.09,-0.1) $);
-      % \coordinate (boom_bottom_right) at ($ (boom_top_right) + (0,-0.1) $);
+      \coordinate (boom_top_left) at ($ (mast_bottom_right) + (0,0.2) $);
+      \coordinate (boom_bottom_left) at ($ (boom_top_left) + (0,-0.07) $);
+      \coordinate (boom_top_right) at ($ (boom_top_left) + (1.7,-0.5) $);
+      \coordinate (boom_bottom_right) at ($ (boom_top_right) + (0,-0.07) $);
       
-      % \draw (boom_top_left) -- (boom_top_right);
-      % \draw (boom_bottom_left) -- (boom_bottom_right);
+      \draw[thick,name path=boom top]
+        (boom_top_left)
+        --
+        ($ (boom_top_right) + (-0.005,-0.005) $)
+        to[out=-150,in=150,looseness=1.3]
+        (boom_bottom_right);
+      \draw[thick,name path=boom bottom]
+        ($ (boom_bottom_right) + (0.005,0.005) $)
+        --
+        (boom_bottom_left)
+        to[out=150,in=-150,looseness=1.3]
+        (boom_top_left);
+      \draw ($ (boom_bottom_right) + (0.005,0) $) to[out=45,in=-45,looseness=1.4] ($ (boom_top_right) + (0.005,0) $);
+      
+      \tikzfillbetween[
+        of=boom top and boom bottom
+      ] {white};
+      
+      % Main sail
+      \coordinate (ms_top_corner) at ($ (mast_top_right) + (0.1,-0.15) $);
+      \coordinate (ms_bottom_corner) at ($ (ms_top_corner) + (0,-3.1) $);
+      \coordinate (ms_right_corner) at ($ (ms_bottom_corner) + (1.5,-0.42) $);
+      
+      \draw[thick,name path=ms edge]
+        (ms_top_corner)
+        --
+        (ms_bottom_corner)
+        --
+        (ms_right_corner);
+      \draw[thick,name path=ms arc]
+        (ms_top_corner)
+        to[out=-30,in=90,looseness=0.5]
+        (ms_right_corner);
+       
+      \tikzfillbetween[
+        of=ms edge and ms arc
+      ] {white};
+      
+      \draw[thick,dots] (mast_top_right) -- ($ (ms_top_corner) + (0.003,0) $);
+      \draw[thick,dots] (boom_top_left) -- ($ (ms_bottom_corner) + (0.003,0) $);
+      \draw[thick,dots] (boom_top_right) -- ($ (ms_right_corner) + (-0.003,0) $);
     }
   }
 }
@@ -118,7 +168,7 @@
     of=land edge and coast
   ] {pattern=my crosshatch dots};
 
-  \draw plot(\x,{sin(14 * \x r) / 16 + 12});
+  \draw plot(\x,{sin(14 * \x r) / 20 + 12});
 
   \path (10,6) pic {boat};
 \end{tikzpicture}
