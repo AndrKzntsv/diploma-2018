@@ -182,6 +182,35 @@
 
 
 % ---------------------------------------------------------------------------- %
+%                              Table of contents                               %
+% ---------------------------------------------------------------------------- %
+
+\RequirePackage{tocloft}
+
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+\setlength{\cftsecnumwidth}{1em}  % 1em width for section numbers
+\cftsetpnumwidth{1em}             % 1em width for page numbers
+\setlength{\cftbeforesecskip}{0pt}
+
+\renewcommand\cftsecfont{\mdseries}
+\renewcommand\cftsecpagefont{\mdseries}
+
+\AtBeginDocument{
+  \makeatletter
+  % Remome TOC title
+  \renewcommand{\tableofcontents}{
+    \@starttoc{toc}
+  }
+
+  % Disable hyphenation
+  \renewcommand{\@tocrmarg}{\@pnumwidth plus1fil}
+  \makeatother
+}
+
+
+
+% ---------------------------------------------------------------------------- %
 %                                    Lists                                     %
 % ---------------------------------------------------------------------------- %
 
