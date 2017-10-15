@@ -200,8 +200,8 @@
 \begin{document}
 \begin{tikzpicture}[domain=0:20,samples=300]
   \begin{pgfonlayer}{foreground}
-    % \draw[step=1cm,black,thin,opacity=0.2,dashed] (20.9,-0.9) grid (-0.9,15.9);
-    \draw[opacity=0] (20.9,-0.9) grid (-0.9,15.9);
+    \draw[step=1cm,black,thin,opacity=0.2,dashed] (20.9,-0.9) grid (-0.9,15.9);
+    % \draw[opacity=0] (20.9,-0.9) grid (-0.9,15.9);
   
     \draw (0,8) -- (0,15) -- (20,15) -- (20,0) -- (12,0);
   
@@ -214,6 +214,83 @@
   
     \path (12,4) pic[scale=0.8] {boat};
     \path (7,8) pic[scale=0.7] {boat};
+    
+    % Receiver
+    \coordinate (pole_left_bottom) at (4,1);
+    \coordinate (pole_right_bottom) at (4.13,1);
+    \coordinate (pole_left_top) at ($ (pole_left_bottom) + (0,2) $);
+    \coordinate (pole_right_top) at ($ (pole_right_bottom) + (0,2) $);
+    
+    \draw[fill=white]
+      (pole_left_top)
+      --
+      (pole_left_bottom)
+      to[out=-45,in=-135,looseness=0.8]
+      (pole_right_bottom)
+      --
+      (pole_right_top);
+      
+    \coordinate (rs_core_1) at ($ (pole_left_top) + (-0.22,0) $);
+    \coordinate (rs_core_2) at ($ (rs_core_1) + (0.35,-0.08) $);
+    \coordinate (rs_core_3) at ($ (rs_core_2) + (0.1,0.02) $);
+    \coordinate (rs_core_4) at ($ (rs_core_3) + (0.15,0.12) $);
+    \coordinate (rs_side_1) at ($ (rs_core_1) + (-0.03,0.1) $);
+    \coordinate (rs_side_2) at ($ (rs_core_2) + (-0.02,0.1) $);
+    \coordinate (rs_side_3) at ($ (rs_core_3) + (0.025,0.11) $);
+    \coordinate (rs_side_4) at ($ (rs_core_4) + (0.02,0.095) $);
+    \coordinate (rs_upper_1) at ($ (rs_side_1) + (-0.085,0.15) $);
+    \coordinate (rs_upper_0) at ($ (rs_upper_1) + (-0.01,0.05) $);
+    \coordinate (rs_upper_2) at ($ (rs_side_2) + (0.02,0.14) $);
+    \coordinate (rs_upper_3) at ($ (rs_side_3) + (0.027,0.14) $);
+    \coordinate (rs_upper_4) at ($ (rs_side_4) + (0.03,0.12) $);
+    \coordinate (rs_top_1) at ($ (rs_upper_1) + (0.1,0.12) $);
+    \coordinate (rs_top_0) at ($ (rs_top_1) + (-0.007,0.02) $);
+    \coordinate (rs_top_2) at ($ (rs_upper_2) + (-0.03,0.15) $);
+    \coordinate (rs_top_3) at ($ (rs_upper_3) + (-0.07,0.14) $);
+    \coordinate (rs_top_4) at ($ (rs_upper_4) + (-0.09,0.105) $);
+    \coordinate (rs_top_5) at ($ (rs_top_4) + (-0.03,0.02) $);
+    \coordinate (rs_top_6) at ($ (rs_top_5) + (-0.3,0.035) $);
+    \coordinate (rs_top_7) at ($ (rs_top_6) + (-0.1,-0.005) $);
+    
+    \draw[fill=white]
+      (rs_core_1) -- (rs_core_2) -- (rs_core_3) -- (rs_core_4);
+      
+    \draw[fill=white]
+      (rs_core_1) -- (rs_side_1) -- (rs_side_2) -- (rs_core_2) -- (rs_core_1);
+      
+    \draw[fill=white]
+      (rs_core_2) -- (rs_side_2) -- (rs_side_3) -- (rs_core_3) -- (rs_core_2);
+      
+    \draw[fill=white]
+      (rs_core_3) -- (rs_side_3) -- (rs_side_4) -- (rs_core_4) -- (rs_core_3);
+      
+    \draw[fill=white]
+      (rs_side_1) -- (rs_upper_1) -- (rs_upper_2) -- (rs_side_2) -- (rs_side_1);
+      
+    \draw[fill=white]
+      (rs_side_2) -- (rs_upper_2) -- (rs_upper_3) -- (rs_side_3) -- (rs_side_2);
+      
+    \draw[fill=white]
+      (rs_side_3) -- (rs_upper_3) -- (rs_upper_4) -- (rs_side_4) -- (rs_side_3);
+      
+    \draw
+      (rs_upper_1) -- (rs_upper_0);
+      
+    \draw[fill=white]
+      (rs_upper_0) -- (rs_top_0) -- (rs_top_1) -- (rs_upper_1) -- (rs_upper_0);
+    
+    \draw[fill=white]
+      (rs_upper_1) -- (rs_top_1) -- (rs_top_2) -- (rs_upper_2) -- (rs_upper_1);
+      
+    \draw[fill=white]
+      (rs_upper_2) -- (rs_top_2) -- (rs_top_3) -- (rs_upper_3) -- (rs_upper_2);
+      
+    \draw[fill=white]
+      (rs_upper_3) -- (rs_top_3) -- (rs_top_4) -- (rs_upper_4) -- (rs_upper_3);
+      
+    \draw[fill=white]
+      (rs_top_0) -- (rs_top_1) -- (rs_top_2) -- (rs_top_3) -- (rs_top_4) --
+      (rs_top_5) -- (rs_top_6) -- (rs_top_7) -- (rs_top_0);
   \end{pgfonlayer}
   
   \begin{pgfonlayer}{background}
