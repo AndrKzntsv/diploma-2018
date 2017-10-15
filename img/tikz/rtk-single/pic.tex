@@ -12,6 +12,10 @@
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{calc,patterns,angles,quotes}
 
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,foreground}
+
 \pgfdeclarepatternformonly{my crosshatch dots}{\pgfqpoint{-2pt}{-1pt}}{\pgfqpoint{5pt}{5pt}}{\pgfqpoint{11pt}{10pt}}%
 {
   \pgfpathcircle{\pgfqpoint{-1pt}{0pt}}{.5pt}
@@ -39,17 +43,36 @@
       \coordinate (stern_right_bottom) at ($ (stern_right_top) + (0,-0.5) $);
 
       % \draw[gray,dotted] (bow) -- (stern);
-      \draw (stern_left_top) -- (stern_right_top);
-      \draw (stern_left_top) -- (stern_left_bottom);
-      \draw (stern_right_top) -- (stern_right_bottom);
+      \draw[fill=white]
+        (stern_left_top)
+        --
+        (stern_right_top)
+        --
+        (stern_right_bottom)
+        to[out=-125,in=-15,looseness=0.8]
+        (stern_left_bottom)
+        --
+        (stern_left_top);
 
-      \draw (stern_right_bottom) to[out=-125,in=-15,looseness=0.8] (stern_left_bottom);
-
-      \draw (bow) to[out=-45,in=-190,looseness=0.8] (stern_left_top);
-      \draw (bow) to[out=-75,in=-190,looseness=0.8] (stern_left_bottom);
-      \draw (bow) to[out=0,in=160,looseness=0.5] (stern_right_top);
+      \draw[fill=white]
+        (bow)
+        to[out=-45,in=-190,looseness=0.8]
+        (stern_left_top)
+        --
+        (stern_left_bottom)
+        to[out=-190,in=-75,looseness=0.8]
+        (bow);
+        
+      \draw[fill=white]
+        (bow)
+        to[out=-45,in=-190,looseness=0.8]
+        (stern_left_top)
+        --
+        (stern_right_top)
+        to[out=160,in=0,looseness=0.5]
+        (bow);
       
-      \draw
+      \draw[fill=white]
         ($ (stern_left_top) + (0,0.05) $)
         --
         ($ (stern_right_top) + (-0.15,0) $)
@@ -69,19 +92,37 @@
       \coordinate (mast_top_left) at ($ (mast_top) + (-0.05,0.03) $);
       \coordinate (mast_top_right) at ($ (mast_top) + (0.05,-0.01) $);
 
-      \draw[name path=mast left,thick] (mast_bottom_left) -- (mast_top_left);
-      \draw[name path=mast right,thick] (mast_bottom_right) -- (mast_top_right);
+      \draw[name path=mast left,very thick] (mast_bottom_left) -- (mast_top_left);
+      \draw[name path=mast right,very thick] (mast_bottom_right) -- (mast_top_right);
       
       \tikzfillbetween[
         of=mast left and mast right
       ] {white};
       
-      \draw ($ (mast_bottom_left) + (-0.005,0) $) to[out=-100,in=-145,looseness=1.4] ($ (mast_bottom_right) + (0.01,0.005) $);
-      \draw[name path=mast top,thick] ($ (mast_top_left) + (-0.002,-0.01) $) to[out=45,in=90,looseness=0.9] ($ (mast_top_right) + (0,-0.01) $);
-      \draw[name path=mast top alt,thick] ($ (mast_top_left) + (0.002,0) $) to[out=-100,in=-145,looseness=1.2] (mast_top_right);
+      \draw[name path=mast bottom,very thick]
+        ($ (mast_bottom_left) + (-0.002,0) $)
+        to[out=-90,in=-140,looseness=1.4]
+        ($ (mast_bottom_right) + (0.003,0.015) $);
+      \draw[name path=mast top,thick]
+        ($ (mast_top_left) + (-0.002,-0.01) $)
+        to[out=45,in=90,looseness=0.9]
+        ($ (mast_top_right) + (0,-0.01) $);
+      \draw[name path=mast top alt,thick]
+        ($ (mast_top_left) + (0.002,0) $)
+        to[out=-100,in=-145,looseness=1.2]
+        (mast_top_right);
       
       \tikzfillbetween[
         of=mast top and mast top alt
+      ] {white};
+      
+      \draw[name path=mast helper,opacity=0]
+        ($ (mast_bottom_left) + (0,0.015) $)
+        --
+        ($ (mast_bottom_right) + (0,0.03) $);
+      
+      \tikzfillbetween[
+        of=mast helper and mast bottom
       ] {white};
       
       % Jib sail
@@ -158,18 +199,30 @@
 
 \begin{document}
 \begin{tikzpicture}[domain=0:20,samples=300]
-  \draw[step=1cm,black,thin,opacity=0.2,dashed] (20.9,-0.9) grid (-0.9,15.9);
-
-  \draw[name path=land edge] (0,8) -- (0,0) -- (12,0);
-  \draw[name path=other edge] (0,8) -- (0,15) -- (20,15) -- (20,0) -- (12,0);
-
-  \draw[name path=coast] (12,0) .. controls (10,4) and (9,3) .. (5,6) .. controls (4,7) and (1,7) .. (0,8);
-  \tikzfillbetween[
-    of=land edge and coast
-  ] {pattern=my crosshatch dots};
-
-  \draw plot(\x,{sin(14 * \x r) / 20 + 12});
-
-  \path (10,6) pic {boat};
+  \begin{pgfonlayer}{foreground}
+    % \draw[step=1cm,black,thin,opacity=0.2,dashed] (20.9,-0.9) grid (-0.9,15.9);
+    \draw[opacity=0] (20.9,-0.9) grid (-0.9,15.9);
+  
+    \draw (0,8) -- (0,15) -- (20,15) -- (20,0) -- (12,0);
+  
+    \draw[fill=white,draw opacity=0] 
+      (0,8) -- (0,0) -- (12,0) .. controls (10,4) and (9,3) .. (5,6) .. controls (4,7) and (1,7) .. (0,8);
+    \draw[pattern=my crosshatch dots] 
+      (0,8) -- (0,0) -- (12,0) .. controls (10,4) and (9,3) .. (5,6) .. controls (4,7) and (1,7) .. (0,8);
+  
+    \draw plot(\x,{sin(14 * \x r) / 20 + 12});
+  
+    \path (12,4) pic[scale=0.8] {boat};
+    \path (7,8) pic[scale=0.7] {boat};
+  \end{pgfonlayer}
+  
+  \begin{pgfonlayer}{background}
+    \foreach \x in {11.9,11.7,...,0.1}{
+      \draw[gray!20,dash pattern=on 5pt off 20pt] ([xshift=12.5pt]0cm, \x cm) -- ++([xshift=-12.5pt]20cm, 0);
+    }
+    \foreach \x in {11.8,11.6,...,0.2}{
+      \draw[gray!20,dash pattern=on 5pt off 20pt] (0cm, \x cm) -- ++(20cm, 0);
+    }
+  \end{pgfonlayer}
 \end{tikzpicture}
 \end{document}
