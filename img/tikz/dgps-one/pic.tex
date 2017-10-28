@@ -293,7 +293,10 @@
     % \draw[opacity=0] (20.9,-0.9) grid (-0.9,15.9);
     
     \draw (0,0) -- (0,15) -- (20,15) -- (20,0) -- (0,0);
-    \draw (20,9) arc (90:139.3:22cm);
+    \draw (20,9) arc (90:143.8:22cm);
+    \coordinate (earth_center) at (20,-13);
+    
+    \path (6,9) pic {satellite};
   \end{pgfonlayer}
   
   \begin{pgfonlayer}{background}
