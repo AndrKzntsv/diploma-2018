@@ -402,10 +402,14 @@
     % \draw[opacity=0] (20.9,-0.9) grid (-0.9,15.9);
     
     \draw (0,0) -- (0,15) -- (20,15) -- (20,0) -- (0,0);
+    
     \draw (20,8) arc (90:140.5:22cm);
+    \draw[dashed] (20,8.75) arc (90:142:22.75cm);
+    \draw[dashed] (20,10) arc (90:144.2:24cm);
+    
     \coordinate (earth_center) at (20,-14);
     
-    \path (6,9) pic {satellite};
+    \path (5,11) pic[scale=0.75] {satellite};
   \end{pgfonlayer}
   
   \begin{pgfonlayer}{background}
