@@ -75,6 +75,26 @@ RTKLIB поддерживает работу с~шестью основными 
 \end{dashitemize}
 
 \subsubsection{Поддерживаемые форматы данных}
+
+RTKLIB поддерживает множество форматов хранения данных, используемых при работе с~ГНСС. Набор поддерживаемых форматов включает в~себя как независимые от специфических устройств форматы (стандартные форматы), так и~форматы, используемые для выдачи координат лишь GPS-приёмниками определённых производителей (проприетарные форматы). \par
+
+Стандартные форматы сообщений:
+\begin{dashitemize}
+  \item RINEX (сокр. англ. \emph{Receiver Independent Exchange Format});
+  \item RTCM (сокр. англ. \emph{Radio Technical Commission for Maritime Services});
+  \item NMEA (сокр. англ. \emph{National Marine Electronics Association}).
+\end{dashitemize}
+
+Примеры поддерживаемых проприетарных форматов сообщений:
+\begin{dashitemize}
+  \item UBX (приёмники u-blox);
+  \item NovAtel;
+  \item Hemisphere;
+  \item JAVAD;
+  \item Furuno;
+  \item NVS.
+\end{dashitemize}
+
 \subsubsection{Программы, входящие в~состав RTKLIB}
 
 \subsection{Основные проблемы использования RTKLIB}
