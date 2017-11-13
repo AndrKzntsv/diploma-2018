@@ -28,7 +28,7 @@
       % Right wing
       \coordinate (rw_top_right) at ($ (center) + (2,2.4) $);
       \coordinate (rw_bottom_right) at ($ (center) + (1.6,-2) $);
-      \coordinate (rw_top_left) at ($ (center) + (0.45,2.3) $);
+      \coordinate (rw_top_left) at ($ (center) + (0.47,2.3) $);
       \coordinate (rw_bottom_left) at ($ (center) + (0.15,-2.1) $);
       
       \draw[fill=white]
@@ -105,7 +105,7 @@
       % Left wing
       \coordinate (lw_top_right) at ($ (center) + (-0.95,2.1) $);
       \coordinate (lw_bottom_right) at ($ (center) + (-1.25,-2.2) $);
-      \coordinate (lw_top_left) at ($ (center) + (-2.45,2) $);
+      \coordinate (lw_top_left) at ($ (center) + (-2.43,2) $);
       \coordinate (lw_bottom_left) at ($ (center) + (-2.8,-2.3) $);
       
       \draw[fill=white]
@@ -140,17 +140,23 @@
 \begin{tikzpicture}[domain=0:20,samples=300]
   \begin{pgfonlayer}{foreground}
     % Mountains
-    \coordinate (rm_left) at (16,4);
-    \coordinate (rm_top) at (17.2,5.5);
-    \coordinate (rm_right) at (18.4,4);
+    \coordinate (rm_left) at (16,4.25);
+    \coordinate (rm_top) at (16.8,5.75);
+    \coordinate (rm_right) at (18.4,4.75);
     
     \draw[fill=white,draw opacity=0] (rm_left) -- (rm_top) -- (rm_right);
     \draw[pattern=north west lines] (rm_left) -- (rm_top) -- (rm_right);
     
-    \draw[fill=white,draw opacity=0] (15,3.5) -- (16,6) -- (17,3.5);
-    \draw[pattern=north east lines] (15,3.5) -- (16,6) -- (17,3.5);
+    \coordinate (lm_left) at (14.5,3);
+    \coordinate (lm_top) at (15,6);
+    \coordinate (lm_right) at (17,4.1);
+    
+    \draw[fill=white,draw opacity=0] (lm_left) -- (lm_top) -- (lm_right);
+    \draw[pattern=north east lines] (lm_left) -- (lm_top) -- (lm_right);
     
     \path (5,11) pic[scale=0.75] {satellite};
+    
+    \path (8,2) pic[scale=0.35] {boat};
   \end{pgfonlayer}
   
   \begin{pgfonlayer}{background}
