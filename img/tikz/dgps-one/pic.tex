@@ -16,7 +16,7 @@
 \pgfdeclarelayer{foreground}
 \pgfsetlayers{background,foreground}
 
-\input{../common/boat}
+\input{../common/boat-reversed}
 \input{../common/crosshatch-pattern}
 \input{../common/receiver}
 
@@ -156,18 +156,32 @@
     
     \path (5,11) pic[scale=0.75] {satellite};
     
-    \path (8,2) pic[scale=0.35] {boat};
+    \path (9,2) pic[scale=0.35,rotate=10] {boat-reversed};
+    \path (13.75,2.5) pic[scale=0.6,rotate=10] {receiver};
   \end{pgfonlayer}
   
   \begin{pgfonlayer}{background}
-    \draw[step=1cm,black,thin,opacity=0.2,dashed] (20.9,-0.9) grid (-0.9,15.9);
-    % \draw[opacity=0] (20.9,-0.9) grid (-0.9,15.9);
+    % \draw[step=1cm,black,thin,opacity=0.2,dashed] (20.9,-0.9) grid (-0.9,15.9);
+    \draw[opacity=0] (20.9,-0.9) grid (-0.9,15.9);
     
     \draw (9,0) -- (0,0) -- (0,15) -- (20,15) -- (20,5.5);
     
     \draw (20,8) arc (90:140.5:22cm);
     \draw[dashed] (20,8.75) arc (90:142:22.75cm);
     \draw[dashed] (20,10) arc (90:144.2:24cm);
+    
+    \draw[gray!60,dash pattern=on 10pt off 20pt] (20,7.75) arc (90:140:21.75cm);
+    \draw[gray!60,dash pattern=on 15pt off 30pt,shorten <=8] (20,7.5) arc (90:140.5:21.5cm);
+    \draw[gray!60,dash pattern=on 10pt off 20pt] (20,7.25) arc (90:138.75:21.25cm);
+    \draw[gray!60,dash pattern=on 15pt off 30pt,shorten <=8] (20,7) arc (90:137.5:21cm);
+    \draw[gray!60,dash pattern=on 10pt off 20pt] (20,6.6) arc (90:137.2:20.6cm);
+    \draw[gray!60,dash pattern=on 15pt off 30pt,shorten <=8] (20,6.3) arc (90:136.4:20.3cm);
+    \draw[gray!60,dash pattern=on 10pt off 20pt] (20,6) arc (90:135.6:20cm);
+    \draw[gray!60,dash pattern=on 15pt off 30pt,shorten <=8] (20,5.6) arc (90:135:19.6cm);
+    \draw[gray!60,dash pattern=on 10pt off 20pt] (20,5.3) arc (90:133.5:19.3cm);
+    \draw[gray!60,dash pattern=on 15pt off 30pt,shorten <=8] (20,5) arc (90:133:19cm);
+    \draw[gray!60,dash pattern=on 10pt off 20pt] (20,4.6) arc (90:132:18.6cm);
+    \draw[gray!60,dash pattern=on 15pt off 30pt,shorten <=8] (20,4.3) arc (90:130.5:18.3cm);
     
     \coordinate (earth_center) at (20,-14);
     
