@@ -6,15 +6,15 @@
 }
 
 \tikzset{
-  boat/.pic={
+  boat-reversed/.pic={
     code={
       % Hull
       \coordinate (bow) at (0,0);
-      \coordinate (stern) at (4,-1.25);
+      \coordinate (stern) at (-4,-1.25);
 
-      \coordinate (stern_left_top) at ($ (stern) + (-0.75,-0.25) $);
+      \coordinate (stern_left_top) at ($ (stern) + (0.75,-0.25) $);
       \coordinate (stern_left_bottom) at ($ (stern_left_top) + (0,-0.5) $);
-      \coordinate (stern_right_top) at ($ (stern) + (0.75,0.25) $);
+      \coordinate (stern_right_top) at ($ (stern) + (-0.75,0.25) $);
       \coordinate (stern_right_bottom) at ($ (stern_right_top) + (0,-0.5) $);
 
       % \draw[gray,dotted] (bow) -- (stern);
@@ -24,48 +24,48 @@
         (stern_right_top)
         --
         (stern_right_bottom)
-        to[out=-125,in=-15,looseness=0.8]
+        to[out=-65,in=-165,looseness=0.8]
         (stern_left_bottom)
         --
         (stern_left_top);
 
       \draw[fill=white]
         (bow)
-        to[out=-45,in=-190,looseness=0.8]
+        to[out=-135,in=10,looseness=0.8]
         (stern_left_top)
         --
         (stern_left_bottom)
-        to[out=-190,in=-75,looseness=0.8]
+        to[out=10,in=-105,looseness=0.8]
         (bow);
         
       \draw[fill=white]
         (bow)
-        to[out=-45,in=-190,looseness=0.8]
+        to[out=-135,in=10,looseness=0.8]
         (stern_left_top)
         --
         (stern_right_top)
-        to[out=160,in=0,looseness=0.5]
+        to[out=20,in=180,looseness=0.5]
         (bow);
       
       \draw[fill=white]
         ($ (stern_left_top) + (0,0.05) $)
         --
-        ($ (stern_right_top) + (-0.15,0) $)
-        to[out=160,in=-10,looseness=0.4]
-        ($ (stern_right_top) + (-2.45,0.6) $)
+        ($ (stern_right_top) + (0.15,0) $)
+        to[out=20,in=-170,looseness=0.4]
+        ($ (stern_right_top) + (2.45,0.6) $)
         --
-        ($ (stern_left_top) + (-2.15,0.8) $)
-        to[out=-35,in=-190,looseness=0.6]
+        ($ (stern_left_top) + (2.15,0.8) $)
+        to[out=-145,in=10,looseness=0.6]
         ($ (stern_left_top) + (0,0.05) $);
       % \draw ($ (stern_right_top) + (-2.45,0.6) $) -- ($ (stern_right_top) + (-2.45,0) $);
 
       % Mast
       \coordinate (mast_bottom) at ($ (bow)!0.4!(stern) $);
-      \coordinate (mast_bottom_left) at ($ (mast_bottom) + (-0.05,0.03) $);
-      \coordinate (mast_bottom_right) at ($ (mast_bottom) + (0.05,-0.03) $);
+      \coordinate (mast_bottom_left) at ($ (mast_bottom) + (0.05,0.03) $);
+      \coordinate (mast_bottom_right) at ($ (mast_bottom) + (-0.05,-0.03) $);
       \coordinate (mast_top) at ($ (mast_bottom) + (0,3.5) $);
-      \coordinate (mast_top_left) at ($ (mast_top) + (-0.05,0.03) $);
-      \coordinate (mast_top_right) at ($ (mast_top) + (0.05,-0.01) $);
+      \coordinate (mast_top_left) at ($ (mast_top) + (0.05,0.03) $);
+      \coordinate (mast_top_right) at ($ (mast_top) + (-0.05,-0.01) $);
 
       \draw[name path=mast left,very thick] (mast_bottom_left) -- (mast_top_left);
       \draw[name path=mast right,very thick] (mast_bottom_right) -- (mast_top_right);
@@ -75,16 +75,16 @@
       ] {white};
       
       \draw[name path=mast bottom,very thick]
-        ($ (mast_bottom_left) + (-0.002,0) $)
-        to[out=-90,in=-140,looseness=1.4]
-        ($ (mast_bottom_right) + (0.003,0.015) $);
+        ($ (mast_bottom_left) + (0.002,0) $)
+        to[out=-90,in=-40,looseness=1.4]
+        ($ (mast_bottom_right) + (-0.003,0.015) $);
       \draw[name path=mast top,thick]
-        ($ (mast_top_left) + (-0.002,-0.01) $)
-        to[out=45,in=90,looseness=0.9]
+        ($ (mast_top_left) + (0.002,-0.01) $)
+        to[out=135,in=90,looseness=0.9]
         ($ (mast_top_right) + (0,-0.01) $);
       \draw[name path=mast top alt,thick]
-        ($ (mast_top_left) + (0.002,0) $)
-        to[out=-100,in=-145,looseness=1.2]
+        ($ (mast_top_left) + (-0.002,0) $)
+        to[out=-80,in=-35,looseness=1.2]
         (mast_top_right);
       
       \tikzfillbetween[
@@ -101,43 +101,43 @@
       ] {white};
       
       % Jib sail
-      \coordinate (js_top_corner) at ($ (mast_top_left) + (-0.05,-0.05) $);
-      \coordinate (js_bottom_corner) at ($ (js_top_corner) + (-0.3,-3.5) $);
-      \coordinate (js_left_corner) at ($ (bow) + (0.1,0.1) $);
+      \coordinate (js_top_corner) at ($ (mast_top_left) + (0.05,-0.05) $);
+      \coordinate (js_bottom_corner) at ($ (js_top_corner) + (0.3,-3.5) $);
+      \coordinate (js_left_corner) at ($ (bow) + (-0.1,0.1) $);
       
       \draw[name path=js arcs,thick] 
         (js_top_corner)
-        to[out=-100,in=95,looseness=0.7]
+        to[out=-80,in=85,looseness=0.7]
         (js_bottom_corner)
-        to[out=170,in=-55,looseness=0.7]
+        to[out=10,in=-125,looseness=0.7]
         (js_left_corner);
-      \draw[name path=js edge,thick] (js_left_corner) to[out=80,in=-130,looseness=0.7] (js_top_corner);
+      \draw[name path=js edge,thick] (js_left_corner) to[out=110,in=-50,looseness=0.7] (js_top_corner);
       
       \tikzfillbetween[
         of=js arcs and js edge
       ] {white};
       
-      \draw[thick,dots] (mast_top_left) -- ($ (js_top_corner) + (0.003,0) $);
-      \draw[thick,dots] (bow) -- ($ (js_left_corner) + (0.003,0) $);
-      \draw[thick,dots] ($ (js_bottom_corner) + (0.5,-0.52) $) -- ($ (js_bottom_corner) + (0.003,0) $);
+      \draw[thick,dots] (mast_top_left) -- ($ (js_top_corner) + (-0.003,0) $);
+      \draw[thick,dots] (bow) -- ($ (js_left_corner) + (-0.003,0) $);
+      \draw[thick,dots] ($ (js_bottom_corner) + (-0.5,-0.52) $) -- ($ (js_bottom_corner) + (-0.003,0) $);
       
       % Boom
       \coordinate (boom_top_left) at ($ (mast_bottom_right) + (0,0.2) $);
       \coordinate (boom_bottom_left) at ($ (boom_top_left) + (0,-0.07) $);
-      \coordinate (boom_top_right) at ($ (boom_top_left) + (1.7,-0.5) $);
+      \coordinate (boom_top_right) at ($ (boom_top_left) + (-1.7,-0.5) $);
       \coordinate (boom_bottom_right) at ($ (boom_top_right) + (0,-0.07) $);
       
       \draw[thick,name path=boom top]
         (boom_top_left)
         --
-        ($ (boom_top_right) + (-0.005,-0.005) $)
-        to[out=-30,in=30,looseness=1.3]
-        ($ (boom_bottom_right) + (-0.017,0) $);
+        ($ (boom_top_right) + (0.005,-0.005) $)
+        to[out=-150,in=150,looseness=1.3]
+        ($ (boom_bottom_right) + (0.017,0) $);
       \draw[thick,name path=boom bottom]
-        ($ (boom_bottom_right) + (0.005,0.005) $)
+        ($ (boom_bottom_right) + (-0.005,0.005) $)
         --
         (boom_bottom_left)
-        to[out=150,in=-150,looseness=1.3]
+        to[out=30,in=-30,looseness=1.3]
         (boom_top_left);
       
       \tikzfillbetween[
@@ -145,9 +145,9 @@
       ] {white};
       
       % Main sail
-      \coordinate (ms_top_corner) at ($ (mast_top_right) + (0.13,-0.15) $);
+      \coordinate (ms_top_corner) at ($ (mast_top_right) + (-0.13,-0.15) $);
       \coordinate (ms_bottom_corner) at ($ (ms_top_corner) + (0,-3.1) $);
-      \coordinate (ms_right_corner) at ($ (ms_bottom_corner) + (1.5,-0.42) $);
+      \coordinate (ms_right_corner) at ($ (ms_bottom_corner) + (-1.5,-0.42) $);
       
       \draw[thick,name path=ms edge]
         (ms_top_corner)
@@ -157,16 +157,16 @@
         (ms_right_corner);
       \draw[thick,name path=ms arc]
         (ms_top_corner)
-        to[out=-30,in=90,looseness=0.5]
+        to[out=-150,in=90,looseness=0.5]
         (ms_right_corner);
        
       \tikzfillbetween[
         of=ms edge and ms arc
       ] {white};
       
-      \draw[thick,dots] (mast_top_right) -- ($ (ms_top_corner) + (0.003,0) $);
-      \draw[thick,dots] (boom_top_left) -- ($ (ms_bottom_corner) + (0.003,0) $);
-      \draw[thick,dots] (boom_top_right) -- ($ (ms_right_corner) + (-0.003,0) $);
+      \draw[thick,dots] (mast_top_right) -- ($ (ms_top_corner) + (-0.003,0) $);
+      \draw[thick,dots] (boom_top_left) -- ($ (ms_bottom_corner) + (-0.003,0) $);
+      \draw[thick,dots] (boom_top_right) -- ($ (ms_right_corner) + (0.003,0) $);
     }
   }
 }
