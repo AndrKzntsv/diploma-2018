@@ -131,6 +131,13 @@
     {.5em}
     {}
     
+  \titleformat{name=\subsubsection,numberless}
+    [block]
+    {\normalsize\bfseries}
+    {}
+    {0em}
+    {\hspace*{1.27cm}}
+    
   \titlespacing{\section}{0pt}{\parskip}{.5em}
   \titlespacing{\subsection}{0pt}{.5em}{.25em}
   \titlespacing{\subsubsection}{0pt}{.5em}{0em}
@@ -162,6 +169,17 @@
     {\hspace*{1.27cm}\thesubsubsection}
     {1em}
     {}
+    
+  \titleformat{name=\subsubsection,numberless}
+    [block]
+    {\normalsize\bfseries}
+    {}
+    {0em}
+    {\hspace*{1.27cm}}
+    
+  \titlespacing{\section}{0pt}{\parskip}{.5em}
+  \titlespacing{\subsection}{0pt}{.5em}{.25em}
+  \titlespacing{\subsubsection}{0pt}{.5em}{0em}
 \fi
 
 % Automatically add numberless sections to TOC
