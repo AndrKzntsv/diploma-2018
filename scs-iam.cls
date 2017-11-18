@@ -238,17 +238,18 @@
 \AddEnumerateCounter{\asbuk}{\russian@alph}{щ}
 \makeatother
 
-\newlist{dashitemize}{enumerate}{3}
-\setlist[dashitemize]{
+\newlist{dashitemize}{enumerate}{2}
+\setlist[dashitemize,1]{
   itemsep=-.5ex,topsep=0pt,leftmargin=0cm,itemindent=1.8cm,label=--
 }
-
-\newlist{numitemize}{enumerate}{3}
-\setlist[numitemize]{
-  itemsep=-.5ex,topsep=0pt,leftmargin=0cm,itemindent=1.91cm,label=\arabic*)
+\setlist[dashitemize,2]{
+  itemsep=-.5ex,topsep=0pt,leftmargin=1.27cm,itemindent=1.8cm,label=\arabic*)
 }
 
-\newlist{alphitemize}{enumerate}{3}
-\setlist[alphitemize]{
+\newlist{alphitemize}{enumerate}{2}
+\setlist[alphitemize,1]{
   itemsep=-.5ex,topsep=0pt,leftmargin=0cm,itemindent=1.91cm,label=\asbuk*)
+}
+\setlist[alphitemize,2]{
+  itemsep=-.5ex,topsep=0pt,leftmargin=1.27cm,itemindent=1.8cm,label=\arabic*)
 }
