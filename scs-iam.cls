@@ -253,3 +253,23 @@
 \setlist[alphitemize,2]{
   itemsep=-.5ex,topsep=0pt,leftmargin=1.27cm,itemindent=1.8cm,label=\arabic*)
 }
+
+
+% ---------------------------------------------------------------------------- %
+%                                   Captions                                   %
+% ---------------------------------------------------------------------------- %
+
+\RequirePackage{chngcntr}
+
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+
+\RequirePackage[
+  labelsep=endash,
+  skip=0pt,
+  justification=centering
+]{caption}
+
+\AtBeginDocument{
+  \renewcommand{\figurename}{Рисунок}
+}
