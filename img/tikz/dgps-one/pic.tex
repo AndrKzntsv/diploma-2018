@@ -9,7 +9,7 @@
 \usepackage{pgfplots}
 \usepgfplotslibrary{fillbetween}
 
-\usetikzlibrary{arrows.meta}
+\usetikzlibrary{arrows,arrows.meta}
 \usetikzlibrary{calc,patterns,angles,quotes}
 
 \pgfdeclarelayer{background}
@@ -154,10 +154,17 @@
     \draw[fill=white,draw opacity=0] (lm_left) -- (lm_top) -- (lm_right);
     \draw[pattern=north east lines] (lm_left) -- (lm_top) -- (lm_right);
     
-    \path (5,11) pic[scale=0.75] {satellite};
+    \coordinate (sat) at (5,11);
+    \coordinate (rover) at (9,2);
+    \coordinate (base) at (13.75,2.5);
     
-    \path (9,2) pic[scale=0.35,rotate=10] {boat-reversed};
-    \path (13.75,2.5) pic[scale=0.6,rotate=10] {receiver};
+    \path (sat) pic[scale=0.75] {satellite};
+    \path (rover) pic[scale=0.35,rotate=10] {boat-reversed};
+    \path (base) pic[scale=0.6,rotate=10] {receiver};
+    
+    \draw[very thick,dashed] (sat) -- ($ (rover) + (-0.75,0.98) $);
+    \draw[very thick,dashed] (sat) -- ($ (base) + (-0.25,1.5) $);
+    \draw[very thick,latex'-latex',shorten <=3pt,shorten >=3pt] (rover) -- node[above,rotate=6] {100\,-\,200 км} (base);
   \end{pgfonlayer}
   
   \begin{pgfonlayer}{background}
