@@ -1,0 +1,63 @@
+% !TEX program = xelatex
+
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{amsmath}
+\usepackage{fontspec}
+\setmainfont{CMU Serif}
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+
+\usetikzlibrary{arrows,arrows.meta}
+\usetikzlibrary{calc,patterns,angles,quotes}
+
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,foreground}
+
+\input{../common/boat}
+\input{../common/crosshatch-pattern}
+\input{../common/receiver}
+
+\begin{document}
+\begin{tikzpicture}[domain=0:20,samples=300]
+  \begin{pgfonlayer}{foreground}
+    % \draw[step=1cm,black,thin,opacity=0.2,dashed] (20.9,-0.9) grid (-0.9,15.9);
+    \draw[opacity=0] (20.9,-0.9) grid (-0.9,15.9);
+  
+    \draw (0,8) -- (0,15) -- (20,15) -- (20,0) -- (12,0);
+  
+    \draw[fill=white,draw opacity=0] 
+      (0,8) -- (0,0) -- (12,0) .. controls (10,4) and (9,3) .. (5,6) .. controls (4,7) and (1,7) .. (0,8);
+    \draw[pattern=my crosshatch dots] 
+      (0,8) -- (0,0) -- (12,0) .. controls (10,4) and (9,3) .. (5,6) .. controls (4,7) and (1,7) .. (0,8);
+  
+    \draw plot(\x,{sin(14 * \x r) / 20 + 12});
+    
+    \coordinate (base) at (4,1);
+    \coordinate (base_top) at ($ (base) + (0.1,3.7) $);
+    \coordinate (rover1) at (8,9);
+    \coordinate (rover1_top) at ($ (rover1) + (1,2.25) $);
+    \coordinate (rover2) at (13,5);
+    \coordinate (rover2_top) at ($ (rover2) + (1.1,2.5) $);
+  
+    \path (rover1) pic[scale=0.7] {boat};
+    \path (rover2) pic[scale=0.8] {boat};
+    
+    \path (base) pic[scale=1.55] {receiver};
+    
+    \draw[ultra thick,dashed,-latex] (base_top) to[bend left=20] (rover1_top);
+    \draw[ultra thick,dashed,-latex] (base_top) to[bend left=15] (rover2_top);
+  \end{pgfonlayer}
+  
+  \begin{pgfonlayer}{background}
+    \foreach \x in {11.9,11.7,...,0.1}{
+      \draw[gray!20,dash pattern=on 5pt off 20pt] ([xshift=12.5pt]0cm, \x cm) -- ++([xshift=-12.5pt]20cm, 0);
+    }
+    \foreach \x in {11.8,11.6,...,0.2}{
+      \draw[gray!20,dash pattern=on 5pt off 20pt] (0cm, \x cm) -- ++(20cm, 0);
+    }
+  \end{pgfonlayer}
+\end{tikzpicture}
+\end{document}
