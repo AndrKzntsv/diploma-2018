@@ -227,6 +227,22 @@
 }
 
 
+% ---------------------------------------------------------------------------- %
+%                                 Bibliography                                 %
+% ---------------------------------------------------------------------------- %
+
+\RequirePackage[numbers,colon]{natbib}
+
+\AtBeginDocument{
+  \bibliographystyle{utf8gost705u}
+  \urlstyle{same}
+
+  \makeatletter
+  \renewcommand{\@biblabel}[1]{#1.} % Change numbering ('[1]' -> '1.')
+  \renewcommand{\refname}{Библиографический список}
+  \makeatother
+}
+
 
 % ---------------------------------------------------------------------------- %
 %                                    Lists                                     %
