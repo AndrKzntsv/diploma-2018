@@ -7,14 +7,25 @@
 
 \begin{document}
   \pagestyle{headcenter}
-  
+
   \setcounter{page}{4}
-  
+
   \section*{СОДЕРЖАНИЕ}
   \tableofcontents
-  
+
   \newpage
-  
+
   \input{sections/0-intro}
   \input{sections/1-analysis}
+
+  \newpage
+
+  \phantomsection
+  \addcontentsline{toc}{section}{Библиографический список}
+
+  \hyphenpenalty=10000
+  \interlinepenalty=10000
+
+  \nocite{*}
+  \bibliography{biblio}
 \end{document}
