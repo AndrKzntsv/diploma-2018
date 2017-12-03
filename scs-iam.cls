@@ -25,6 +25,7 @@
 \LoadClass[a4paper,14pt]{extarticle}
 
 \RequirePackage{hyperref}
+\RequirePackage{amsmath}
 
 
 % ---------------------------------------------------------------------------- %
