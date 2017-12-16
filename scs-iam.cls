@@ -294,6 +294,19 @@
 
 
 % ---------------------------------------------------------------------------- %
+%                                    Tables                                    %
+% ---------------------------------------------------------------------------- %
+
+\RequirePackage{ctable}
+\RequirePackage{makecell}
+
+\setlength{\abovetopsep}{0pt}
+\setlength{\belowrulesep}{0pt}
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowbottomsep}{0pt}
+
+
+% ---------------------------------------------------------------------------- %
 %                                   Captions                                   %
 % ---------------------------------------------------------------------------- %
 
@@ -302,11 +315,20 @@
 \counterwithin{figure}{section}
 \counterwithin{table}{section}
 
-\RequirePackage[
+\RequirePackage{caption}
+
+\captionsetup[figure]{
   labelsep=endash,
   skip=0pt,
   justification=centering
-]{caption}
+}
+
+\captionsetup[table]{
+  labelsep=none,
+  skip=0pt,
+  justification=raggedright,
+  singlelinecheck=off
+}
 
 \AtBeginDocument{
   \renewcommand{\figurename}{Рисунок}
