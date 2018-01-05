@@ -229,8 +229,10 @@
 
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 
-\setlength{\cftsecnumwidth}{1em}  % 1em width for section numbers
-\cftsetpnumwidth{1em}             % 1em width for page numbers
+\setlength{\cftsecnumwidth}{1em}          % 1em width for section numbers
+\setlength{\cftsubsecnumwidth}{1.75em}    % 1em width for subsection numbers
+\setlength{\cftsubsubsecnumwidth}{2.5em}  % 1em width for subsection numbers
+\cftsetpnumwidth{1em}                     % 1em width for page numbers
 \setlength{\cftbeforesecskip}{0pt}
 
 \renewcommand\cftsecfont{\mdseries}
