@@ -1,0 +1,20 @@
+% !TeX spellcheck = ru_RU_yo
+% !TEX program = xelatex
+
+\documentclass{../../scs-iam}
+
+\usepackage{calc}
+
+\newlength{\remaining}
+\newcommand{\titledline}[1]{%
+  \setlength{\remaining}{\textwidth-\widthof{#1}-5pt}
+  #1
+}
+
+\begin{document}
+  \pagestyle{headcenter}
+  
+  \input{title}
+
+  \setcounter{page}{2}
+\end{document}
