@@ -1,0 +1,19 @@
+% !TeX spellcheck = ru_RU_yo
+% !TEX program = xelatex
+
+\documentclass{../../scs-iam}
+
+\usepackage{multirow}
+\usepackage{calc}
+
+\newlength{\remaining}
+\newcommand{\titledline}[1]{%
+  \setlength{\remaining}{\textwidth-\widthof{#1}-6pt}
+  #1
+}
+
+\begin{document}
+  \pagestyle{headcenter}
+  
+  \input{title}
+\end{document}
