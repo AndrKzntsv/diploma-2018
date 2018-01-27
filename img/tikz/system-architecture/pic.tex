@@ -9,6 +9,12 @@
 
 \usepackage{pgfplots}
 
+% \usepackage{polyglossia}
+% \setdefaultlanguage[spelling=modern]{russian}
+% \newfontfamily{\cyrillicfont}{Fira Sans}
+% \newfontfamily{\cyrillicfontsf}{Fira Sans}
+% \newfontfamily{\cyrillicfonttt}{Fira Mono}
+
 \usetikzlibrary{arrows.meta,fit}
 
 \tikzset{scheme part/.style={
@@ -38,7 +44,7 @@
 
   \draw[scheme part]
     (2,10) rectangle (8,7)
-    node[align=center, pos=.5, yshift=-3pt] {Flask $+$ \\ Socket.io сервер};
+    node[align=center, pos=.5, yshift=-3pt] {Flask + \\ Socket.io сервер};
 
   \draw[scheme part]
     (2,6) rectangle (8,4)
