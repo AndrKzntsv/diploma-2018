@@ -1,0 +1,54 @@
+\usetikzlibrary{calc}
+
+\mode<presentation>
+
+\definecolor{ifmoblue}{RGB}{25,70,186}
+\definecolor{ifmored}{RGB}{236,11,67}
+
+\setbeamertemplate{background}{
+  \begin{tikzpicture}
+    \useasboundingbox (0,0) rectangle (\the\paperwidth,\the\paperheight);
+    %\fill[color=ifmoblue] (0,0) rectangle (\the\paperwidth,\the\paperheight);
+    %\fill[color=orange] (0,0) rectangle(2.95,1.9);
+    %\fill[color=blue!50!cyan!80] (3.05,0) rectangle(\the\paperwidth,1.9);
+    \ifnum\thepage>1\relax%
+      %\fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+      %\fill[color=cyan] ($ (5,\the\paperheight) - (0,1.1cm) $) rectangle (7,\the\paperheight);
+    \fi
+    %\draw[xstep=1cm,ystep=100cm,gray,very thin] ($ (0,\the\paperheight) - (0,0) $) grid ($ (\the\paperwidth,0) + (0,0) $);
+    %\draw[gray,thin] ($ (0,\the\paperheight) - (0,1cm) $) -- ($ (\the\paperwidth,\the\paperheight) - (0,1cm) $);
+    %\draw[gray,thin] ($ (0,\the\paperheight) - (0,2cm) $) -- ($ (\the\paperwidth,\the\paperheight) - (0,2cm) $);
+    %\draw[gray,thin] ($ (0,\the\paperheight) - (0,3cm) $) -- ($ (\the\paperwidth,\the\paperheight) - (0,3cm) $);
+    %\draw[gray,thin] ($ (0,\the\paperheight) - (0,4cm) $) -- ($ (\the\paperwidth,\the\paperheight) - (0,4cm) $);
+    %\draw[gray,thin] ($ (0,\the\paperheight) - (0,5cm) $) -- ($ (\the\paperwidth,\the\paperheight) - (0,5cm) $);
+    %\draw[gray,thin] ($ (0,\the\paperheight) - (0,6cm) $) -- ($ (\the\paperwidth,\the\paperheight) - (0,6cm) $);
+    %\draw[gray,thin] ($ (0,\the\paperheight) - (0,7cm) $) -- ($ (\the\paperwidth,\the\paperheight) - (0,7cm) $);
+    %\draw[gray,thin] ($ (0,\the\paperheight) - (0,8cm) $) -- ($ (\the\paperwidth,\the\paperheight) - (0,8cm) $);
+    %\draw[gray,thin] ($ (0,\the\paperheight) - (0,9cm) $) -- ($ (\the\paperwidth,\the\paperheight) - (0,9cm) $);
+  \end{tikzpicture}
+}
+
+% Title page
+\defbeamertemplate*{title page}{ifmo}[1][]
+{ 
+  \vskip0.4cm%
+  \begin{beamercolorbox}[wd=\paperwidth,center,#1]{title page header}
+    \usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par%
+    \vskip1cm%
+    \usebeamerfont{title}\color{ifmoblue}\bfseries\inserttitle\par%
+  \end{beamercolorbox}%
+  \vskip0.4cm%
+  \begin{beamercolorbox}[wd=12cm,center,#1]{author}
+    \usebeamerfont{author}{\small\color{ifmoblue}\insertauthor}%
+  \end{beamercolorbox}
+  \vskip0.1cm%
+  \begin{beamercolorbox}[wd=12cm,center,#1]{date}
+    \usebeamerfont{date}{\footnotesize\color{ifmoblue}\insertdate}%
+  \end{beamercolorbox}
+  \vskip1.2cm%
+  \begin{beamercolorbox}[wd=12cm,center,#1]{date}
+    \usebeamerfont{date}{\footnotesize\color{ifmoblue}Санкт-Петербург\\ \the\year}%
+  \end{beamercolorbox}
+}
+
+\mode<all>

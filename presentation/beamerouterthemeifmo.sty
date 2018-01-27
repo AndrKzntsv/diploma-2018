@@ -1,0 +1,30 @@
+\usetikzlibrary{calc}
+
+\mode<presentation>
+
+\definecolor{ifmoblue}{RGB}{25,70,186}
+\definecolor{ifmored}{RGB}{236,11,67}
+
+% Frame title
+\defbeamertemplate*{frametitle}{texsx}[1][]
+{
+\vskip1cm%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=1.2cm]{frametitle} 
+  \begin{tikzpicture}[remember picture,overlay]
+  \useasboundingbox (0,0) rectangle (\the\paperwidth,\the\paperheight);
+  %\fill[orange] (0,0) rectangle(2.95,1.2);
+  %\fill[blue!50!cyan!80] (3.05,0) rectangle(\the\paperwidth,1.2);
+ \ifx\insertframesubtitle\@empty%
+      {\node[anchor=west,ifmoblue,font=\Large\bf]    at (0.4,1.35) {\insertframetitle};}
+      \else%
+      {\node[anchor= west,ifmoblue,font=\Large\bf]   at (0.4,1.35) {\insertframetitle};%
+       \node[anchor= west,ifmoblue,font=\normalsize] at (0.4,0.88) {\insertframesubtitle};}%
+      \fi
+      %\node[anchor=north east,yshift=2pt] at (current page.north east) {\includegraphics[height=0.8cm]{ifmo/long-logo-blue}};
+      \node[anchor=east,ifmoblue,font=\normalsize] at (12.6,-6.8) {\insertframenumber};
+  \end{tikzpicture}
+  \end{beamercolorbox}
+  \vskip -0.8cm
+}
+
+\mode<all>

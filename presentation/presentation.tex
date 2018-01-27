@@ -1,0 +1,112 @@
+% !TEX program = xelatex
+% !TeX spellcheck = ru_RU_yo
+
+\documentclass[xetex,t]{beamer}
+
+\usepackage{xecyr}
+\usepackage{xunicode}
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+\setmainfont{ALS Schlange sans}
+
+\usepackage{polyglossia}
+\setdefaultlanguage[spelling=modern]{russian}
+\newfontfamily{\cyrillicfont}{ALSSchlangesans}
+\newfontfamily{\cyrillicfontsf}{ALSSchlangesans}
+\newfontfamily{\cyrillicfonttt}{Droid Sans Mono}
+
+\usepackage[euler-digits,small]{eulervm}
+\AtBeginDocument{\renewcommand{\hbar}{\hslash}}
+
+\definecolor{ifmoblue}{RGB}{25,70,186}
+\definecolor{ifmored}{RGB}{236,11,67}
+
+\setbeamertemplate{itemize items}[circle]
+
+\usepackage{epstopdf}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{nicefrac}
+\usepackage{ctable}
+\usepackage{ragged2e}
+
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+
+\usepackage{xcolor}
+\newcommand{\highlight}[1]{\colorbox{orange!50}{$\displaystyle#1$}}
+
+\usepackage{tikz}
+\usetikzlibrary{calc, shadings, shadows, positioning, shapes.arrows, backgrounds}
+
+\tikzset{
+  zigzag/.style={to path={ -- ($(\tikztostart)!.51!-3:(\tikztotarget)$) -- ($(\tikztostart)!.49!3:(\tikztotarget)$) -- (\tikztotarget) \tikztonodes}},
+  new dashed/.style={dash pattern=on 8pt off 4pt}
+}
+
+\newcommand{\email}[1]{{\scriptsize\texttt{#1}}}
+
+\usebackgroundtemplate{}
+
+\titlegraphic{\includegraphics[width=5cm]{ifmo/logo-blue}}
+\title{Разработка веб-приложения для работы\\с программным пакетом высокоточного позиционирования RTKLIB}
+\author[Кузнецов А.А., P3410]{Кузнецов Андрей Андреевич, ФПИиКТ, ИПМ, Р4215}
+\date[]{Научный руководитель: Соснин В.В., к.т.н., доцент}
+
+\usetheme{ifmo}
+\setbeamersize{text margin left=0.6cm,text margin right=0.5cm}
+
+\begin{document}
+
+%
+% 1. Титульный слайд
+%
+\begin{frame}
+  \titlepage
+\end{frame}
+
+
+%
+% 2. DGPS
+%
+\begin{frame}
+  \frametitle{Дифференциальная GPS}
+
+  \begin{center}
+    \textbf{Дифференциальная GPS} (англ. \emph{Differential Global Positioning System}) -- система, предназначенная для повышения точности сигналов GPS. Принцип работы данной системы заключается в~измерении и~учёте разницы между рассчитанной и~закодированной псевдодальностями до спутников.
+  \end{center}
+
+  \vskip -0.25cm
+
+  \begin{figure}[h]
+    \centering
+    \includegraphics[height=4.5cm]{../img/tikz/dgps-one/pic}
+  \end{figure}
+\end{frame}
+
+
+%
+% 3. RTK
+%
+\begin{frame}
+  \frametitle{Кинематика реального времени}
+
+  \begin{center}
+    Some text
+  \end{center}
+\end{frame}
+
+
+%
+% The End
+%
+\begin{frame}[c]
+\begin{center}
+  \Huge\bfseries
+  \color{ifmoblue}{Спасибо за внимание}
+\end{center}
+\end{frame}
+
+\end{document}
