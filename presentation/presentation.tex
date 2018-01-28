@@ -266,12 +266,38 @@
 \end{frame}
 
 
+\setbeamercovered{transparent}
+
 %
 % Tabs
 %
 \begin{frame}
   \frametitle{Разработка веб-приложения}
   \framesubtitle{Разделение на интерфейса на секции}
+
+  \begin{minipage}[c]{\textwidth}
+    \centering
+    \begin{minipage}[t]{.45\textwidth}
+      \rule{\textwidth}{0.4pt}
+      \begin{itemize}
+        \item<1> Статус
+        \item<2> Изыскания
+        \item<3> Настройки RTK
+        \item<4> Входящие поправки
+        \item<5> Выдача позиции
+        \item<6> Режим базы
+        \item<7> Логирование
+        \item<8> Управление камерой
+        \item<9> Wi-Fi/Bluetooth
+        \item<10> Настройки
+      \end{itemize}
+    \end{minipage}
+    \hspace{1em}
+    \begin{minipage}[t]{.45\textwidth}
+      \only<1>{ tmp1 }
+      \only<2->{ tmp2 }
+    \end{minipage}
+  \end{minipage}
 \end{frame}
 
 
