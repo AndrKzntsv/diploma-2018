@@ -38,13 +38,7 @@
 \usepackage{xcolor}
 \newcommand{\highlight}[1]{\colorbox{orange!50}{$\displaystyle#1$}}
 
-\usepackage{tikz}
-\usetikzlibrary{calc, shadings, shadows, positioning, shapes.arrows, backgrounds}
-
-\tikzset{
-  zigzag/.style={to path={ -- ($(\tikztostart)!.51!-3:(\tikztotarget)$) -- ($(\tikztostart)!.49!3:(\tikztotarget)$) -- (\tikztotarget) \tikztonodes}},
-  new dashed/.style={dash pattern=on 8pt off 4pt}
-}
+\usepackage{textpos}
 
 \newcommand{\email}[1]{{\scriptsize\texttt{#1}}}
 
@@ -195,8 +189,27 @@
 % Receivers review
 %
 \begin{frame}
-    \frametitle{Обзор существующих решений}
-    \framesubtitle{Интерфейсы для управления приёмниками}
+  \frametitle{Обзор существующих решений}
+  \framesubtitle{Интерфейсы для управления приёмниками}
+
+  \begin{textblock*}{3cm}(0.5cm,0.5cm)
+    \includegraphics[width=\textwidth]{../img/trimble-tsc3}
+  \end{textblock*}
+  \begin{textblock*}{3cm}(2cm,4.5cm)
+    \includegraphics[width=\textwidth]{../img/leica-gs16}
+  \end{textblock*}
+  \begin{textblock*}{1.5cm}(5.5cm,1cm)
+    \includegraphics[width=\textwidth]{../img/javad-mobile-tools}
+  \end{textblock*}
+  \begin{textblock*}{3cm}(4cm,1.5cm)
+    \includegraphics[width=\textwidth]{../img/javad-victor}
+  \end{textblock*}
+  \begin{textblock*}{3.5cm}(7.75cm,0.5cm)
+    \includegraphics[width=\textwidth]{../img/javad-netbrowser}
+  \end{textblock*}
+  \begin{textblock*}{1.75cm}(7.25cm,4cm)
+    \includegraphics[width=\textwidth]{../img/drotek-web}
+  \end{textblock*}
 \end{frame}
 
 
