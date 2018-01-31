@@ -1,0 +1,112 @@
+% !TEX program = xelatex
+% !TeX spellcheck = ru_RU_yo
+
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{amsmath}
+\usepackage{fontspec}
+\setmainfont{CMU Serif}
+
+\usepackage{pgfplots}
+
+\usepackage{polyglossia}
+\setdefaultlanguage[spelling=modern]{russian}
+\newfontfamily{\cyrillicfont}{Fira Sans}
+\newfontfamily{\cyrillicfontsf}{Fira Sans}
+\newfontfamily{\cyrillicfonttt}{Fira Mono}
+
+\usetikzlibrary{arrows.meta,fit}
+
+\tikzset{scheme part/.style={
+  black,
+  inner sep=0pt,
+  draw=black,
+  font=\LARGE
+}}
+
+\begin{document}
+\begin{tikzpicture}[domain=0:20,samples=300]
+  % \draw[step=1cm,black,thin,opacity=0.2,dashed] (28.05,-0.05) grid (-0.05,16.05);
+  \draw[opacity=0] (28.05,-0.05) grid (-0.05,16.05);
+
+  % \draw (0,0) -- (0,16) -- (28,16) -- (28,0) -- (0,0);
+
+  % Server
+  \node[
+    scheme part,
+    fit={(1,15) (27,4)},
+    dashed
+  ] (rect) {};
+  
+  \node[label={right:{\Large Vue.js-приложение}}, xshift=-6pt, yshift=4pt] at (2,14)  {};
+
+  \draw[scheme part]
+    (2,13) rectangle (6,11)
+    node[align=center, pos=.5] {Wi-Fi/BT};
+    
+  \draw[scheme part]
+    (7,13) rectangle (11,11)
+    node[align=center, pos=.5] {Настройки};
+    
+  \draw[scheme part]
+    (12,13) rectangle (16,11)
+    node[align=center, pos=.5] {Настройки \\ RTK};
+    
+  \draw[scheme part]
+    (17,13) rectangle (21,11)
+    node[align=center, pos=.5] {Входящие \\ поправки};
+
+  \draw[scheme part]
+    (22,13) rectangle (26,11)
+    node[align=center, pos=.5] {Выдача \\ позиции};
+
+  \draw[scheme part]
+    (2,7) rectangle (6,5)
+    node[align=center, pos=.5] {Режим \\ базы};
+
+  \draw[scheme part]
+    (7,7) rectangle (11,5)
+    node[align=center, pos=.5] {Логирование};
+    
+  \draw[scheme part]
+    (12,7) rectangle (16,5)
+    node[align=center, pos=.5] {Управление \\ камерой};
+    
+  \draw[scheme part]
+    (17,7) rectangle (21,5)
+    node[align=center, pos=.5] {Статус};
+    
+  \draw[scheme part]
+    (22,7) rectangle (26,5)
+    node[align=center, pos=.5] {Изыскания};
+    
+  \draw[scheme part]
+    (2,10) rectangle (26,8)
+    node[align=center, pos=.5] {Глобальное хранилище данных};
+    
+  \draw[scheme part]
+    (3,3) rectangle (10,1)
+    node[align=center, pos=.5] {Модуль обработки \\ событий};
+    
+  \draw[scheme part]
+    (18,3) rectangle (25,1)
+    node[align=center, pos=.5] {Модуль для \\ работы с картами};
+
+  \draw[-{Latex[length=3mm]},thick] (4,10) -- (4,11);
+  \draw[{Latex[length=3mm]}-{Latex[length=3mm]},thick] (9,10) -- (9,11);
+  \draw[{Latex[length=3mm]}-{Latex[length=3mm]},thick] (14,10) -- (14,11);
+  \draw[{Latex[length=3mm]}-{Latex[length=3mm]},thick] (19,10) -- (19,11);
+  \draw[{Latex[length=3mm]}-{Latex[length=3mm]},thick] (24,10) -- (24,11);
+  
+  \draw[{Latex[length=3mm]}-{Latex[length=3mm]},thick] (4,8) -- (4,7);
+  \draw[{Latex[length=3mm]}-{Latex[length=3mm]},thick] (9,8) -- (9,7);
+  \draw[{Latex[length=3mm]}-{Latex[length=3mm]},thick] (14,8) -- (14,7);
+  \draw[-{Latex[length=3mm]},thick] (19,8) -- (19,7);
+  \draw[{Latex[length=3mm]}-{Latex[length=3mm]},thick] (24,8) -- (24,7);
+  
+  \draw[-{Latex[length=3mm]},thick] (6.5,3) -- (6.5,8);
+  
+  \draw[-{Latex[length=3mm]},thick] (19,3) -- (19,5);
+  \draw[-{Latex[length=3mm]},thick] (24,3) -- (24,5);
+\end{tikzpicture}
+\end{document}
