@@ -64,18 +64,41 @@
 
 
 % ---------------------------------------------------------------------------- %
-%                                Cyrillic fonts                                %
+%                                 Fonts setup                                  %
 % ---------------------------------------------------------------------------- %
 
-\RequirePackage{xecyr}	
+\RequirePackage{xecyr}
 \RequirePackage{xunicode}
 
 \RequirePackage{fontspec}
 \defaultfontfeatures{Ligatures=TeX}
-\setmainfont{Times New Roman}
-\newfontfamily{\cyrillicfont}{Times New Roman}
-\newfontfamily{\cyrillicfontsf}{Arial}
-\newfontfamily{\cyrillicfonttt}{Courier New}
+
+% `Computer Modern Unicode` or `Times New Roman` font
+\newif\if@cmu
+\newif\if@tnr
+
+\DeclareOption{cmu}{
+  \@cmutrue
+  \@tnrfalse
+}
+\DeclareOption{tnr}{
+  \@cmufalse
+  \@tnrtrue
+}
+
+\ExecuteOptions{cmu} % default is `cmu`
+
+\ProcessOptions\relax
+
+\if@cmu
+  \setmainfont{CMU Serif}
+\fi
+\if@tnr
+  \setmainfont{Times New Roman}
+  \newfontfamily{\cyrillicfont}{Times New Roman}
+  \newfontfamily{\cyrillicfontsf}{Arial}
+  \newfontfamily{\cyrillicfonttt}{Courier New}
+\fi
 
 \RequirePackage{polyglossia}
 \setdefaultlanguage[spelling=modern]{russian}
