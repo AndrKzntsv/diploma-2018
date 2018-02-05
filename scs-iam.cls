@@ -349,7 +349,7 @@
 }
 
 \captionsetup[table]{
-  labelsep=none,
+  labelsep=endash,
   skip=0pt,
   justification=raggedright,
   singlelinecheck=off
