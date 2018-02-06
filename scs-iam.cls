@@ -306,7 +306,7 @@
   itemsep=-.5ex,topsep=0pt,leftmargin=0cm,itemindent=1.8cm,label=--
 }
 \setlist[dashitemize,2]{
-  itemsep=-.5ex,topsep=0pt,leftmargin=1.27cm,itemindent=1.8cm,label=\arabic*)
+  itemsep=-.5ex,topsep=-5pt,leftmargin=1.27cm,itemindent=1.8cm,label=\arabic*)
 }
 
 \newlist{alphitemize}{enumerate}{2}
@@ -314,7 +314,7 @@
   itemsep=-.5ex,topsep=0pt,leftmargin=0cm,itemindent=1.91cm,label=\asbuk*)
 }
 \setlist[alphitemize,2]{
-  itemsep=-.5ex,topsep=0pt,leftmargin=1.27cm,itemindent=1.8cm,label=\arabic*)
+  itemsep=-.5ex,topsep=-5pt,leftmargin=1.27cm,itemindent=1.8cm,label=\arabic*)
 }
 
 
