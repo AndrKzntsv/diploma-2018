@@ -58,12 +58,29 @@
   Наиболее удачным решение для разрабатываемого приложения является протокол WebSocket. Создавая на клиентской части веб-приложения слушателей определённых событий, становится возможно организовать отображение различной информации в режиме реального времени без постоянных опросов сервера.
 \end{dashitemize}
 
+\subsubsection{Основные модули}
+
+\begin{alphitemize}
+  \item Серверная часть
+  \begin{alphitemize}
+    \item WebSocket сервер
+    \item Модуль взаимодействия с~RTKLIB
+    \item Демоны и~сервисы для взаимодействия с~аппаратными компонентами устройства
+  \end{alphitemize}
+
+  \item Клиентская часть
+  \begin{alphitemize}
+    \item WebSocket клиент
+    \item JavaScript-приложение
+  \end{alphitemize}
+\end{alphitemize}
+
 \begin{figure}[h!]
   \centering
   \setlength{\fboxsep}{5pt}
   \includegraphics[height=8cm]{example-image}
   \vspace*{12pt}
-  \caption{Общая архитектура приложения}\label{fig:system-architecture}
+  \caption{Общая архитектура приложения}\label{fig:raw-system-architecture}
 \end{figure}
 
 \subsection{Выбор инструментов разработки}
