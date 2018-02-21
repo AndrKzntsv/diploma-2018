@@ -104,12 +104,40 @@
 
 \subsubsection{Клиентская часть приложения}
 
+% TODO Дополнить содержание + исправить порядок абзацев
+Как уже было сказано ранее, клиентскую часть разрабатываемого решения было решено реализовать в~виде одностраничного приложения. \par
+
+Для работы с WebSocket была выбрана библиотека Socket.IO [?]. Данный выбор обусловлен не только популярностью библиотеки, но и наличием полной поддержки Socket.IO на серверной части приложения -- для веб-фреймворка Flask существует расширение Flask-SocketIO, позволяющее серверу обмениваться сообщениями с любыми клиентами Socket.IO.
+
 \begin{dashitemize}
   \item HTML + JavaScript
   \item Vue.js + Vuex
   \item Socket.IO
   \item D3
   \item OpenLayers
+\end{dashitemize}
+
+\subsection{Детализированная архитектура приложения}
+
+\subsubsection{Архитектура клиентской части приложения}
+
+\subsection{Создание макета веб-приложения}
+
+\subsubsection{Общий вид приложение}
+
+\subsubsection{Детализация интерфейса отдельных модулей приложения}
+
+\begin{dashitemize}
+  \item \textbf{Статус}.
+  \item \textbf{Изыскания}.
+  \item \textbf{Настройки RTK}.
+  \item \textbf{Входящие поправки}.
+  \item \textbf{Выдача позиции}.
+  \item \textbf{Режим базы}.
+  \item \textbf{Логирование}.
+  \item \textbf{Управление камерой}.
+  \item \textbf{Wi-Fi/Bluetooth}.
+  \item \textbf{Настройки}.
 \end{dashitemize}
 
 \newpage
