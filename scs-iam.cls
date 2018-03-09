@@ -76,14 +76,22 @@
 % `Computer Modern Unicode` or `Times New Roman` font
 \newif\if@cmu
 \newif\if@tnr
+\newif\if@pta
 
 \DeclareOption{cmu}{
   \@cmutrue
   \@tnrfalse
+  \@ptafalse
 }
 \DeclareOption{tnr}{
   \@cmufalse
   \@tnrtrue
+  \@ptafalse
+}
+\DeclareOption{pta}{
+  \@cmufalse
+  \@tnrfalse
+  \@ptatrue
 }
 
 \ExecuteOptions{cmu} % default is `cmu`
@@ -98,6 +106,12 @@
   \newfontfamily{\cyrillicfont}{Times New Roman}
   \newfontfamily{\cyrillicfontsf}{Arial}
   \newfontfamily{\cyrillicfonttt}{Courier New}
+\fi
+\if@pta
+\setmainfont{PT Astra Serif}
+\newfontfamily{\cyrillicfont}{PT Astra Serif}
+\newfontfamily{\cyrillicfontsf}{PT Astra Sans}
+\newfontfamily{\cyrillicfonttt}{Courier New}
 \fi
 
 \RequirePackage{polyglossia}
