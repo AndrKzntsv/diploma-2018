@@ -73,10 +73,9 @@
 \RequirePackage{fontspec}
 \defaultfontfeatures{Ligatures=TeX}
 
-% `Computer Modern Unicode` or `Times New Roman` font
-\newif\if@cmu
-\newif\if@tnr
-\newif\if@pta
+\newif\if@cmu % Computer Modern Unicode
+\newif\if@tnr % Times New Roman
+\newif\if@pta % PT Astra Serif, PT Astra Sans
 
 \DeclareOption{cmu}{
   \@cmutrue
@@ -108,10 +107,10 @@
   \newfontfamily{\cyrillicfonttt}{Courier New}
 \fi
 \if@pta
-\setmainfont{PT Astra Serif}
-\newfontfamily{\cyrillicfont}{PT Astra Serif}
-\newfontfamily{\cyrillicfontsf}{PT Astra Sans}
-\newfontfamily{\cyrillicfonttt}{Courier New}
+  \setmainfont{PT Astra Serif}
+  \newfontfamily{\cyrillicfont}{PT Astra Serif}
+  \newfontfamily{\cyrillicfontsf}{PT Astra Sans}
+  \newfontfamily{\cyrillicfonttt}{PT Mono}
 \fi
 
 \RequirePackage{polyglossia}
