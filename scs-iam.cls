@@ -146,6 +146,8 @@
 
 \RequirePackage{titlesec}
 
+\setcounter{secnumdepth}{4}
+
 % Centered or left aligned titles for section, subsections, etc.
 \newif\if@ctitles
 \newif\if@ltitles
@@ -175,30 +177,33 @@
     {\large\centering\bfseries}
     {}
     {0pt}
-    {}  
+    {}
+
   \titleformat{name=\subsection}
     [block]
     {\normalsize\centering\bfseries}
     {\thesubsection}
     {.5em}
-    {}  
+    {}
+
   \titleformat{name=\subsubsection}
     [block]
     {\normalsize\centering\bfseries}
     {\thesubsubsection}
     {.5em}
     {}
-    
-  \titleformat{name=\subsubsection,numberless}
+
+  \titleformat{\paragraph}
     [block]
-    {\normalsize\bfseries}
+    {\normalsize\centering\bfseries}
+    {\theparagraph}
+    {.5em}
     {}
-    {0em}
-    {\hspace*{1.27cm}}
-    
+
   \titlespacing{\section}{0pt}{\parskip}{.5em}
   \titlespacing{\subsection}{0pt}{.5em}{.25em}
   \titlespacing{\subsubsection}{0pt}{.5em}{0em}
+  \titlespacing{\paragraph}{0pt}{.5em}{0em}
 \fi
 \if@ltitles
   \titleformat{name=\section}
@@ -213,31 +218,32 @@
     {}
     {0pt}
     {\hspace*{1.27cm}}
-    
+
   \titleformat{name=\subsection}
     [block]
     {\normalsize\bfseries}
     {\hspace*{1.27cm}\thesubsection}
     {1em}
     {}
-    
+
   \titleformat{name=\subsubsection}
     [block]
     {\normalsize\bfseries}
     {\hspace*{1.27cm}\thesubsubsection}
     {1em}
     {}
-    
-  \titleformat{name=\subsubsection,numberless}
+
+  \titleformat{name=\paragraph}
     [block]
     {\normalsize\bfseries}
+    {\hspace*{1.27cm}\theparagraph}
+    {1em}
     {}
-    {0em}
-    {\hspace*{1.27cm}}
-    
+
   \titlespacing{\section}{0pt}{\parskip}{.5em}
   \titlespacing{\subsection}{0pt}{.5em}{.25em}
   \titlespacing{\subsubsection}{0pt}{.5em}{0em}
+  \titlespacing{\paragraph}{0pt}{.5em}{0em}
 \fi
 
 % Automatically add numberless sections to TOC
