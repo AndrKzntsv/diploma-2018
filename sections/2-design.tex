@@ -232,11 +232,13 @@
 
 % TODO Дополнить ограничения и записать причины их наличия!
 При настройке необходимо соблюдать следующие ограничения:
-\begin{dashitemize}
+\begin{alphitemize}
   \item получение данных GPS невозможно отключить;
-  \item невозможно одновременно включить системы ГЛОНАСС и~BeiDou;
-  \item невозможно настроить получение данных от ГЛОНАСС и~BeiDou при частоте обновления выше 5 Гц.
-\end{dashitemize}
+  \item \label{itm:glonass-beidou-conflict} невозможно одновременно включить системы ГЛОНАСС и~BeiDou;
+  \item \label{itm:glonass-beidou-update-rates} невозможно настроить получение данных от ГЛОНАСС и~BeiDou при частоте обновления выше 5 Гц.
+\end{alphitemize}
+
+Ограничения, указанные в~пунктах \ref{itm:glonass-beidou-conflict} и~\ref{itm:glonass-beidou-update-rates} списка выше, обусловлены аппаратными ограничениями приёмника u-blox, установленного в~устройствах Reach и~Reach~RS.
 
 \subsubsection{Входящие поправки}
 
