@@ -315,6 +315,56 @@
 % ---------------------------------------------------------------------------- %
 
 \RequirePackage{enumitem}
+\RequirePackage{calc}
+
+\newif\if@normallists
+\newif\if@paddedlists
+
+\DeclareOption{normallists}{
+  \@normalliststrue
+  \@paddedlistsfalse
+}
+\DeclareOption{paddedlists}{
+  \@normallistsfalse
+  \@paddedliststrue
+}
+
+\ExecuteOptions{normallists}
+
+\ProcessOptions\relax
+
+\newlength{\dashItemIndentOne}
+\newlength{\dashLeftMarginOne}
+\newlength{\dashItemIndentTwo}
+\newlength{\dashLeftMarginTwo}
+
+\newlength{\alphItemIndentOne}
+\newlength{\alphLeftMarginOne}
+\newlength{\alphItemIndentTwo}
+\newlength{\alphLeftMarginTwo}
+
+\if@normallists
+  \setlength{\dashLeftMarginOne}{0cm}
+  \setlength{\dashItemIndentOne}{1.8cm}
+  \setlength{\dashLeftMarginTwo}{\parindent}
+  \setlength{\dashItemIndentTwo}{1.8cm}
+
+  \setlength{\alphLeftMarginOne}{0cm}
+  \setlength{\alphItemIndentOne}{1.8cm+0.15cm}
+  \setlength{\alphLeftMarginTwo}{\parindent}
+  \setlength{\alphItemIndentTwo}{1.8cm}
+\fi
+\if@paddedlists
+  \setlength{\dashLeftMarginOne}{1.8cm}
+  \setlength{\dashItemIndentOne}{0cm}
+  \setlength{\dashLeftMarginTwo}{\parindent}
+  \setlength{\dashItemIndentTwo}{0cm}
+
+  \setlength{\alphLeftMarginOne}{1.8cm+0.15cm}
+  \setlength{\alphItemIndentOne}{0cm}
+  \setlength{\alphLeftMarginTwo}{\parindent-0.15cm}
+  \setlength{\alphItemIndentTwo}{0cm}
+\fi
 
 \makeatletter
 \AddEnumerateCounter{\asbuk}{\russian@alph}{щ}
@@ -322,18 +372,18 @@
 
 \newlist{dashitemize}{enumerate}{2}
 \setlist[dashitemize,1]{
-  itemsep=-.5ex,topsep=0pt,leftmargin=0cm,itemindent=1.8cm,label=--
+  itemsep=-.5ex,topsep=0pt,leftmargin=\dashLeftMarginOne,itemindent=\dashItemIndentOne,label=--
 }
 \setlist[dashitemize,2]{
-  itemsep=-.5ex,topsep=-5pt,leftmargin=1.27cm,itemindent=1.8cm,label=\arabic*)
+  itemsep=-.5ex,topsep=-5pt,leftmargin=\dashLeftMarginTwo,itemindent=\dashItemIndentTwo,label=\arabic*)
 }
 
 \newlist{alphitemize}{enumerate}{2}
 \setlist[alphitemize,1]{
-  itemsep=-.5ex,topsep=0pt,leftmargin=0cm,itemindent=1.91cm,label=\asbuk*)
+  itemsep=-.5ex,topsep=0pt,leftmargin=\alphLeftMarginOne,itemindent=\alphItemIndentOne,label=\asbuk*)
 }
 \setlist[alphitemize,2]{
-  itemsep=-.5ex,topsep=-5pt,leftmargin=1.27cm,itemindent=1.8cm,label=\arabic*)
+  itemsep=-.5ex,topsep=-5pt,leftmargin=\alphLeftMarginTwo,itemindent=\alphItemIndentTwo,label=\arabic*)
 }
 
 
