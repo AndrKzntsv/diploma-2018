@@ -413,7 +413,6 @@
 
 \captionsetup[figure]{
   labelsep=endash,
-  skip=0pt,
   justification=centering
 }
 
