@@ -11,102 +11,213 @@
 
 \usepackage{polyglossia}
 \setdefaultlanguage[spelling=modern]{russian}
-\newfontfamily{\cyrillicfont}{Fira Sans}
-\newfontfamily{\cyrillicfontsf}{Fira Sans}
-\newfontfamily{\cyrillicfonttt}{Fira Mono}
+\newfontfamily{\cyrillicfont}{PT Astra Sans}
+\newfontfamily{\cyrillicfontsf}{PT Astra Sans}
+\newfontfamily{\cyrillicfonttt}{PT Mono}
 
-\usetikzlibrary{arrows.meta,fit}
+\usetikzlibrary{arrows.meta,fit,calc}
 
 \tikzset{scheme part/.style={
   black,
+  very thick,
   inner sep=0pt,
   draw=black,
-  font=\LARGE
+  font=\huge,
+  rounded corners=2mm
 }}
 
 \begin{document}
+% TODO Use 'positioning' library
 \begin{tikzpicture}[domain=0:20,samples=300]
-  % \draw[step=1cm,black,thin,opacity=0.2,dashed] (28.05,-0.05) grid (-0.05,16.05);
-  \draw[opacity=0] (28.05,-0.05) grid (-0.05,16.05);
+  \def\modulewidth{4.5}
+  \def\moduleheight{2}
+  \def\moduleskip{1}
 
-  % \draw (0,0) -- (0,16) -- (28,16) -- (28,0) -- (0,0);
+  \coordinate (start) at (0,0);
 
-  % Server
+
+  % \draw[step=1cm,black,thin,opacity=0.2,dashed]
+  \draw[opacity=0]
+    ($ (start) + (-\modulewidth - \moduleskip * 2 - 0.1, -\moduleheight * 2 - \moduleskip * 3 - 0.1) $)
+    grid
+    ($ (start) + (\modulewidth * 4 + \moduleskip * 5 + 0.1, \moduleheight + \moduleskip * 5 + 0.1) $);
+
+
   \node[
     scheme part,
-    fit={(1,15) (27,4)},
+    fit={($ (start) + (-\modulewidth - \moduleskip * 2, -\moduleheight - \moduleskip * 2) $) ($ (start) + (\modulewidth * 4 + \moduleskip * 5, \moduleheight + \moduleskip * 5) $)},
     dashed
   ] (rect) {};
-  
-  \node[label={right:{\Large Vue.js-приложение}}, xshift=-6pt, yshift=4pt] at (2,14)  {};
 
+  \node[
+    xshift=-6pt,
+    yshift=4pt,
+    label={right:{\LARGE Vue.js-приложение}}
+  ] at ($ (start) + (-\modulewidth - \moduleskip, \moduleheight * 2 + \moduleskip * 2) $)  {};
+
+
+  % Vuex
   \draw[scheme part]
-    (2,13) rectangle (6,11)
-    node[align=center, pos=.5] {Wi-Fi/BT};
-    
+    (start) rectangle (\modulewidth * 3 + \moduleskip * 2, \moduleheight)
+    node[align=center, pos=.5] {Глобальное хранилище данных};
+
+
+  % Settings
   \draw[scheme part]
-    (7,13) rectangle (11,11)
+    ($ (start) + (-\modulewidth - \moduleskip, 0) $) rectangle ($ (start) + (-\moduleskip, \moduleheight) $)
     node[align=center, pos=.5] {Настройки};
-    
+
+  \draw[{Latex[length=3.5mm]}-{Latex[length=3.5mm]}, ultra thick]
+    ($ (start) + (-\moduleskip, \moduleheight * 0.5) $)
+    --
+    ($ (start) + (0, \moduleheight * 0.5) $);
+
+
+  % Camera control
   \draw[scheme part]
-    (12,13) rectangle (16,11)
+    ($ (start) + (-\modulewidth - \moduleskip, \moduleheight + \moduleskip) $) rectangle ($ (start) + (-\moduleskip, \moduleheight * 2 + \moduleskip) $)
+    node[align=center, pos=.5, yshift=-1.5pt] {Управление \\ камерой};
+
+  \draw[{Latex[length=3.5mm]}-{Latex[length=3.5mm]}, ultra thick]
+    ($ (start) + (-\moduleskip, \moduleheight + \moduleskip) $)
+    --
+    ($ (start) + (0, \moduleheight) $);
+
+
+  % Wi-Fi
+  \draw[scheme part]
+    ($ (start) + (0, \moduleheight + \moduleskip) $) rectangle ($ (start) + (\modulewidth, \moduleheight * 2 + \moduleskip) $)
+    node[align=center, pos=.5] {Wi-Fi};
+
+  \draw[{Latex[length=3.5mm]}-{Latex[length=3.5mm]}, ultra thick]
+    ($ (start) + (\modulewidth * 0.5, \moduleheight + \moduleskip) $)
+    --
+    ($ (start) + (\modulewidth * 0.5, \moduleheight) $);
+
+
+  % Bluetooth
+  \draw[scheme part]
+    ($ (start) + (\modulewidth + \moduleskip, \moduleheight + \moduleskip) $) rectangle ($ (start) + (\modulewidth * 2 + \moduleskip, \moduleheight * 2 + \moduleskip) $)
+    node[align=center, pos=.5] {Bluetooth};
+
+  \draw[{Latex[length=3.5mm]}-{Latex[length=3.5mm]}, ultra thick]
+    ($ (start) + (\modulewidth * 1.5 + \moduleskip, \moduleheight + \moduleskip) $)
+    --
+    ($ (start) + (\modulewidth * 1.5 + \moduleskip, \moduleheight) $);
+
+
+  % RTK settings
+  \draw[scheme part]
+    ($ (start) + (\modulewidth * 2 + \moduleskip * 2, \moduleheight + \moduleskip) $) rectangle ($ (start) + (\modulewidth * 3 + \moduleskip * 2, \moduleheight * 2 + \moduleskip) $)
     node[align=center, pos=.5] {Настройки \\ RTK};
-    
-  \draw[scheme part]
-    (17,13) rectangle (21,11)
-    node[align=center, pos=.5] {Входящие \\ поправки};
 
-  \draw[scheme part]
-    (22,13) rectangle (26,11)
-    node[align=center, pos=.5] {Выдача \\ позиции};
+  \draw[{Latex[length=3.5mm]}-{Latex[length=3.5mm]}, ultra thick]
+    ($ (start) + (\modulewidth * 2.5 + \moduleskip * 2, \moduleheight + \moduleskip) $)
+    --
+    ($ (start) + (\modulewidth * 2.5 + \moduleskip * 2, \moduleheight) $);
 
+
+  % Correction input
   \draw[scheme part]
-    (2,7) rectangle (6,5)
+    ($ (start) + (\modulewidth * 3 + \moduleskip * 3, \moduleheight + \moduleskip) $) rectangle ($ (start) + (\modulewidth * 4 + \moduleskip * 4, \moduleheight * 2 + \moduleskip) $)
+    node[align=center, pos=.5, yshift=-1.5pt] {Входящие \\ поправки};
+
+  \draw[{Latex[length=3.5mm]}-{Latex[length=3.5mm]}, ultra thick]
+    ($ (start) + (\modulewidth * 3 + \moduleskip * 3, \moduleheight + \moduleskip) $)
+    --
+    ($ (start) + (\modulewidth * 3 + \moduleskip * 2, \moduleheight) $);
+
+
+  % Position output
+  \draw[scheme part]
+    ($ (start) + (\modulewidth * 3 + \moduleskip * 3, 0) $) rectangle ($ (start) + (\modulewidth * 4 + \moduleskip * 4, \moduleheight) $)
+    node[align=center, pos=.5, yshift=-1.5pt] {Выдача \\ позиции};
+
+  \draw[{Latex[length=3.5mm]}-{Latex[length=3.5mm]}, ultra thick]
+    ($ (start) + (\modulewidth * 3 + \moduleskip * 3, \moduleheight * 0.5) $)
+    --
+    ($ (start) + (\modulewidth * 3 + \moduleskip * 2, \moduleheight * 0.5) $);
+
+
+  % Status
+  \draw[scheme part]
+    ($ (start) + (\modulewidth * 3 + \moduleskip * 3, -\moduleheight - \moduleskip) $) rectangle ($ (start) + (\modulewidth * 4 + \moduleskip * 4, -\moduleskip) $)
+    node[align=center, pos=.5] {Статус};
+
+  \draw[{Latex[length=3.5mm]}-, ultra thick]
+    ($ (start) + (\modulewidth * 3 + \moduleskip * 3, -\moduleskip) $)
+    --
+    ($ (start) + (\modulewidth * 3 + \moduleskip * 2, 0) $);
+
+
+  % Survey
+  \draw[scheme part]
+    ($ (start) + (\modulewidth * 2 + \moduleskip * 2, -\moduleheight - \moduleskip) $) rectangle ($ (start) + (\modulewidth * 3 + \moduleskip * 2, -\moduleskip) $)
+    node[align=center, pos=.5] {Изыскания};
+
+  \draw[{Latex[length=3.5mm]}-{Latex[length=3.5mm]}, ultra thick]
+    ($ (start) + (\modulewidth * 2.5 + \moduleskip * 2, -\moduleskip) $)
+    --
+    ($ (start) + (\modulewidth * 2.5 + \moduleskip * 2, 0) $);
+
+
+  % Battery
+  \draw[scheme part]
+    ($ (start) + (\modulewidth + \moduleskip, -\moduleheight - \moduleskip) $) rectangle ($ (start) + (\modulewidth * 2 + \moduleskip, -\moduleskip) $)
+    node[align=center, pos=.5] {Батарея};
+
+  \draw[{Latex[length=3.5mm]}-, ultra thick]
+    ($ (start) + (\modulewidth * 1.5 + \moduleskip, -\moduleskip) $)
+    --
+    ($ (start) + (\modulewidth * 1.5 + \moduleskip, 0) $);
+
+
+  % Logging
+  \draw[scheme part]
+    ($ (start) + (0, -\moduleheight - \moduleskip) $) rectangle ($ (start) + (\modulewidth, -\moduleskip) $)
+    node[align=center, pos=.5] {Логирование};
+
+  \draw[{Latex[length=3.5mm]}-{Latex[length=3.5mm]}, ultra thick]
+    ($ (start) + (\modulewidth * 0.5, -\moduleskip) $)
+    --
+    ($ (start) + (\modulewidth * 0.5, 0) $);
+
+
+  % Base mode
+  \draw[scheme part]
+    ($ (start) + (-\modulewidth - \moduleskip, -\moduleheight - \moduleskip) $) rectangle ($ (start) + (-\moduleskip, -\moduleskip) $)
     node[align=center, pos=.5] {Режим \\ базы};
 
-  \draw[scheme part]
-    (7,7) rectangle (11,5)
-    node[align=center, pos=.5] {Логирование};
-    
-  \draw[scheme part]
-    (12,7) rectangle (16,5)
-    node[align=center, pos=.5] {Управление \\ камерой};
-    
-  \draw[scheme part]
-    (17,7) rectangle (21,5)
-    node[align=center, pos=.5] {Статус};
-    
-  \draw[scheme part]
-    (22,7) rectangle (26,5)
-    node[align=center, pos=.5] {Изыскания};
-    
-  \draw[scheme part]
-    (2,10) rectangle (26,8)
-    node[align=center, pos=.5] {Глобальное хранилище данных};
-    
-  \draw[scheme part]
-    (3,3) rectangle (10,1)
-    node[align=center, pos=.5] {Модуль обработки \\ событий};
-    
-  \draw[scheme part]
-    (18,3) rectangle (25,1)
-    node[align=center, pos=.5] {Модуль для \\ работы с картами};
+  \draw[{Latex[length=3.5mm]}-{Latex[length=3.5mm]}, ultra thick]
+    ($ (start) + (-\moduleskip, -\moduleskip) $)
+    --
+    ($ (start) + (0, 0) $);
 
-  \draw[-{Latex[length=3mm]},thick] (4,10) -- (4,11);
-  \draw[{Latex[length=3mm]}-{Latex[length=3mm]},thick] (9,10) -- (9,11);
-  \draw[{Latex[length=3mm]}-{Latex[length=3mm]},thick] (14,10) -- (14,11);
-  \draw[{Latex[length=3mm]}-{Latex[length=3mm]},thick] (19,10) -- (19,11);
-  \draw[{Latex[length=3mm]}-{Latex[length=3mm]},thick] (24,10) -- (24,11);
-  
-  \draw[{Latex[length=3mm]}-{Latex[length=3mm]},thick] (4,8) -- (4,7);
-  \draw[{Latex[length=3mm]}-{Latex[length=3mm]},thick] (9,8) -- (9,7);
-  \draw[{Latex[length=3mm]}-{Latex[length=3mm]},thick] (14,8) -- (14,7);
-  \draw[-{Latex[length=3mm]},thick] (19,8) -- (19,7);
-  \draw[{Latex[length=3mm]}-{Latex[length=3mm]},thick] (24,8) -- (24,7);
-  
-  \draw[-{Latex[length=3mm]},thick] (6.5,3) -- (6.5,8);
-  
-  \draw[-{Latex[length=3mm]},thick] (19,3) -- (19,5);
-  \draw[-{Latex[length=3mm]},thick] (24,3) -- (24,5);
+
+  % Events module
+  \draw[scheme part]
+    ($ (start) + (-\modulewidth - \moduleskip, -\moduleheight * 2 - \moduleskip * 3) $) rectangle ($ (start) + (\modulewidth * 1.5 + \moduleskip * 0.5, -\moduleheight - \moduleskip * 3) $)
+    node[align=center, pos=.5] {Модуль обработки событий};
+
+  \draw[-{Latex[length=3.5mm]}, ultra thick]
+    ($ (start) + (\modulewidth + \moduleskip * 0.5, -\moduleheight - \moduleskip * 3) $)
+    --
+    ($ (start) + (\modulewidth + \moduleskip * 0.5, 0) $);
+
+
+  % OL wrapper
+  \draw[scheme part]
+    ($ (start) + (\modulewidth * 1.5 + \moduleskip * 1.5, -\moduleheight * 2 - \moduleskip * 3) $) rectangle ($ (start) + (\modulewidth * 4 + \moduleskip * 4, -\moduleheight - \moduleskip * 3) $)
+    node[align=center, pos=.5] {Модуль работы с картами};
+
+  \draw[-{Latex[length=3.5mm]}, ultra thick]
+    ($ (start) + (\modulewidth * 2.5 + \moduleskip * 2, -\moduleheight - \moduleskip * 3) $)
+    --
+    ($ (start) + (\modulewidth * 2.5 + \moduleskip * 2, -\moduleheight - \moduleskip) $);
+
+  \draw[-{Latex[length=3.5mm]}, ultra thick]
+    ($ (start) + (\modulewidth * 3.5 + \moduleskip * 3, -\moduleheight - \moduleskip * 3) $)
+    --
+    ($ (start) + (\modulewidth * 3.5 + \moduleskip * 3, -\moduleheight - \moduleskip) $);
 \end{tikzpicture}
 \end{document}
