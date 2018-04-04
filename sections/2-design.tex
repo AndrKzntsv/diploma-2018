@@ -363,21 +363,20 @@
 
 \paragraph{Передача данных}
 
-% TODO Перечислить форматы данных
+
 Способы передачи данных и~элементы их конфигурации:
 \begin{dashitemize}
   \item последовательный порт
   \begin{dashitemize}
     \item устройство (UART, USB-to-PC, USB-OTG);
-    \item скорость передачи (бод);
-    \item формат данных.
+    \item скорость передачи (бод).
   \end{dashitemize}
 
   \item NTRIP
   \begin{dashitemize}
     \item адрес;
     \item порт;
-    \item пароль (опционально);
+    \item имя пользователя и~пароль (опционально);
     \item точка подключения.
   \end{dashitemize}
 
@@ -385,29 +384,48 @@
   \begin{dashitemize}
     \item роль (сервер, клиент);
     \item адрес;
-    \item порт;
-    \item формат данных.
+    \item порт.
   \end{dashitemize}
 
-  \item Bluetooth
-  \begin{dashitemize}
-    \item формат данных.
-  \end{dashitemize}
+  \item Bluetooth (не имеет настроек)
 
   \item LoRa
   \begin{dashitemize}
     \item частота;
     \item выходная мощность;
-    \item пропускная способность;
-    \item формат данных.
+    \item пропускная способность.
   \end{dashitemize}
 \end{dashitemize}
 
 \paragraph{Передаваемые сообщения}
 
-при использовании LoRa, максимальный объём передаваемых RTCM3-сообщений должен быть ограничен в зависимости от выбранной пропускной способности
+% TODO Оформить в виде таблицы?
+Доступные для передачи типы RTCM3-сообщений:
+\begin{dashitemize}
+  \item 1002 -- L1-только GPS RTK измерения (англ. \emph{L1-Only GPS RTK Observables});
+  \item 1006 -- Местоположение точки относительно антенны референтной станции RTK с высотой антенны (англ. \emph{Stationary RTK Reference Station ARP with Antenna Height});
+  \item 1008 -- Описание антенны и серийный номер (англ. \emph{Antenna Descriptor and Serial Number});
+  \item 1019 -- Эфемериды GPS (англ. \emph{GPS Satellite Ephemeris });
+  \item 1020 -- Эфемериды ГЛОНАСС (англ. \emph{GLONASS Satellite Ephemeris});
+  \item 1010 -- Расширенные L1-только ГЛОНАСС RTK измерения (англ. \emph{Extended L1-Only GLONASS RTK Observables});
+  \item 1097 -- Сообщения множественных сигналов Galileo (англ. \emph{Galileo MSM7});
+  \item 1107 -- Сообщения множественных сигналов SBAS (англ. \emph{SBAS MSM7});
+  \item 1117 -- Сообщения множественных сигналов QZSS (англ. \emph{QZSS MSM7});
+  \item 1127 -- Сообщения множественных сигналов BeiDou (англ. \emph{BeiDou MSM7}).
+\end{dashitemize}
+
+Каждый из перечисленных типов сообщений может передаваться с частотой ...
+
+При использовании LoRa, максимальный объём передаваемых RTCM3-сообщений должен быть ограничен в зависимости от выбранной пропускной способности.
 
 \paragraph{Координаты базы}
+
+\begin{dashitemize}
+  \item ручной ввод (WGS84, ECEF XYZ);
+  \item автоматическое усреднение (SINGLE, FLOAT, FIX).
+\end{dashitemize}
+
+От 6 секунд до 30 минут (?)
 
 валидация географических координат
 
