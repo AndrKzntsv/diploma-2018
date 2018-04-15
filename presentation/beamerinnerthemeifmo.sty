@@ -31,24 +31,29 @@
 % Title page
 \defbeamertemplate*{title page}{ifmo}[1][]
 { 
-  \vskip0.4cm%
-  \begin{beamercolorbox}[wd=\paperwidth,center,#1]{title page header}
-    \usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par%
-    \vskip1cm%
-    \usebeamerfont{title}\color{ifmoblue}\bfseries\inserttitle\par%
-  \end{beamercolorbox}%
-  \vskip0.4cm%
-  \begin{beamercolorbox}[wd=12cm,center,#1]{author}
-    \usebeamerfont{author}{\small\color{ifmoblue}\insertauthor}%
-  \end{beamercolorbox}
-  \vskip0.1cm%
-  \begin{beamercolorbox}[wd=12cm,center,#1]{date}
-    \usebeamerfont{date}{\footnotesize\color{ifmoblue}\insertdate}%
-  \end{beamercolorbox}
-  \vskip1.2cm%
-  \begin{beamercolorbox}[wd=12cm,center,#1]{date}
-    \usebeamerfont{date}{\footnotesize\color{ifmoblue}Санкт-Петербург\\ \the\year}%
-  \end{beamercolorbox}
+  \vskip0.4cm
+  \begingroup
+    \centering
+    \parbox{.85\paperwidth}{
+      \begin{beamercolorbox}[wd=\linewidth,center,#1]{title page header}
+        \usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par
+        \vskip1cm
+        \usebeamerfont{title}\color{ifmoblue}\bfseries\inserttitle\par
+      \end{beamercolorbox}
+    }
+    \vskip0.6cm
+    \begin{beamercolorbox}[center,#1]{author}
+      \usebeamerfont{author}{\small\color{ifmoblue}\insertauthor}
+    \end{beamercolorbox}
+    \vskip0.1cm
+    \begin{beamercolorbox}[center,#1]{date}
+      \usebeamerfont{date}{\footnotesize\color{ifmoblue}\insertdate}
+    \end{beamercolorbox}
+    \vskip1cm
+    \begin{beamercolorbox}[center,#1]{date}
+      \usebeamerfont{date}{\footnotesize\color{ifmoblue}Санкт-Петербург\\ \the\year}
+    \end{beamercolorbox}
+  \endgroup
 }
 
 \mode<all>
