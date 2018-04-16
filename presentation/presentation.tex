@@ -68,25 +68,16 @@
 \begin{frame}
   \frametitle{Дифференциальная GPS}
 
-  \only<1>{
-    \begin{center}
-      \textbf{Дифференциальная GPS} (англ. \emph{Differential Global Positioning System}) -- система, предназначенная для повышения точности сигналов GPS. Принцип работы данной системы заключается в~измерении и~учёте разницы между рассчитанной и~закодированной псевдодальностями до спутников.
-    \end{center}
-    
-    \vskip -0.25cm
-    
-    \begin{figure}[h]
-      \centering
-      \includegraphics[height=4.5cm]{../img/tikz/dgps-one/pic}
-    \end{figure}
-  }
+  \begin{center}
+    \textbf{Дифференциальная GPS} -- система, предназначенная для повышения\\точности сигналов GPS.
+  \end{center}
 
-  \only<2>{
-    \begin{figure}[t]
-      \centering
-      \includegraphics[height=7.25cm]{../img/tikz/dgps-one/pic}
-    \end{figure}
-  }
+  \vskip -0.25cm
+
+  \begin{figure}[h]
+    \centering
+    \includegraphics[height=5.5cm]{../img/tikz/dgps-one/pic}
+  \end{figure}
 \end{frame}
 
 
@@ -97,43 +88,45 @@
   \frametitle{Кинематика реального времени}
 
   \begin{center}
-    \textbf{Кинематика реального времени} (англ. \emph{Real Time Kinematic, RTK}) -- режим работы, при котором приём и~применение поправок с~базы происходят в~реальном времени, что позволяет получать результат практически сразу. Важнейшей особенностью данного режима является тот факт, что для обеспечения работы необходима постоянная связь между ровером и~базой.
+    \textbf{Кинематика реального времени} (англ. \emph{Real Time Kinematic, RTK}) -- режим работы, при котором приём и~применение поправок с~базы происходят в~реальном времени.
   \end{center}
 
-  \vskip 0.25cm
+  \vskip0.2cm
+  \begin{center}
+    \vskip -0.7cm
+    \color{ifmoblue}{\rule{.5\textwidth}{0.5pt}}
+  \end{center}
 
-  \only<2>{
-    \begin{minipage}{\textwidth}
+  \begin{minipage}{\textwidth}
+    \centering
+    \begin{minipage}[t]{.3\textwidth}
       \centering
-      \begin{minipage}[t]{.3\textwidth}
+      \begin{figure}[h]
         \centering
-        \begin{figure}[h]
-          \centering
-          \includegraphics[height=21pt]{../img/trimble}
-        \end{figure}
-        \$~10$\,$000
+        \includegraphics[height=21pt]{../img/trimble}
+      \end{figure}
+      \$~10$\,$000
 
-        {
-          \scriptsize
-          \color{gray}{Trimble R8 Model 3 (2009)}
-        }
-      \end{minipage}
-      \hspace{1em}
-      \begin{minipage}[t]{.3\textwidth}
-        \centering
-        \begin{figure}[h]
-          \centering
-          \includegraphics[height=21pt]{../img/leica}
-        \end{figure}
-        \$~6$\,$000
-
-        {
-          \scriptsize
-          \color{gray}{Leica Viva GS08 (2012)}
-        }
-      \end{minipage}
+      {
+        \scriptsize
+        \color{gray}{Trimble R8 Model 3 (2009)}
+      }
     \end{minipage}
-  }
+    \hspace{1em}
+    \begin{minipage}[t]{.3\textwidth}
+      \centering
+      \begin{figure}[h]
+        \centering
+        \includegraphics[height=21pt]{../img/leica}
+      \end{figure}
+      \$~6$\,$000
+
+      {
+        \scriptsize
+        \color{gray}{Leica Viva GS08 (2012)}
+      }
+    \end{minipage}
+  \end{minipage}
 \end{frame}
 
 
@@ -141,7 +134,7 @@
 % RTKLIB
 %
 \begin{frame}
-  \frametitle{RTKLIB}
+  \frametitle{RTKLIB (\,1\,)}
   
   \begin{center}
     \textbf{RTKLIB} -- программный пакет с~открытым исходным кодом, предназначенный для осуществления стандартного и~высокоточного позиционирования с~помощью глобальных навигационных спутниковых систем.
@@ -158,12 +151,12 @@
 % RTKLIB problems
 %
 \begin{frame}
-  \frametitle{RTKLIB}
+  \frametitle{RTKLIB (\,2\,)}
   \framesubtitle{Проблемы использования}
 
   \begin{figure}[h]
     \centering
-    \includegraphics[width=.95\textwidth]{../img/rtklib-hell}
+    \includegraphics[width=.75\textwidth]{../img/rtklib-hell}
   \end{figure}
 \end{frame}
 
@@ -177,9 +170,9 @@
   \begin{center}
     {
       \Large
-      \textbf{Предмет исследования} -- процесс взаимодействия пользователя с~программными компонентами\\пакета RTKLIB.
+      \textbf{Предмет исследования} -- процесс взаимодействия пользователя с~программными компонентами пакета RTKLIB.
       \vskip .75cm
-      \textbf{Цель работы} -- создание приложения,\\позволяющего взаимодействовать с~RTKLIB\\[0.25em]через веб-браузер.
+      \textbf{Цель работы} -- создание приложения, позволяющего\\[0.35em]взаимодействовать с~RTKLIB через веб-браузер.
     }
   \end{center}
 \end{frame}
@@ -189,7 +182,7 @@
 % Receivers review
 %
 \begin{frame}
-  \frametitle{Обзор существующих решений}
+  \frametitle{Обзор существующих решений (\,1\,)}
   \framesubtitle{Интерфейсы для управления приёмниками}
 
   \begin{textblock*}{3cm}(0.5cm,0.5cm)
@@ -217,7 +210,7 @@
 % Web apps review
 %
 \begin{frame}
-  \frametitle{Обзор существующих решений}
+  \frametitle{Обзор существующих решений (\,2\,)}
   \framesubtitle{Веб-интерфейсы для управления устройствами}
   \vskip 1cm
   \begin{minipage}{\textwidth}
@@ -302,49 +295,14 @@
 
 
 %
-% Raw architecture
-%
-\begin{frame}
-  \frametitle{Общая архитектура приложения}
-  \vskip -0.75cm
-  \begin{figure}[h]
-    \centering
-    \includegraphics[width=.95\textwidth]{../img/tikz/raw-system-architecture/pic}
-  \end{figure}
-\end{frame}
-
-
-%
-% Tools
-%
-\begin{frame}
-  \frametitle{Средства разработки}
-  \vskip 1cm
-  {
-    \Large
-    \begin{itemize}
-      \item Python (Flask)
-      \item JavaScript (Vue.js + Vuex, D3.js, OpenLayers)
-      \item Socket.io (WebSocket)
-    \end{itemize}
-    
-    % \begin{itemize}
-    %   \item Karma + Mocha
-    %   \item PyTest + Selenium
-    % \end{itemize}
-  }
-\end{frame}
-
-
-%
 % System architecture
 %
 \begin{frame}
   \frametitle{Общая архитектура приложения}
-  \vskip -0.75cm
+  \vskip -0.5cm
   \begin{figure}[h]
     \centering
-    \includegraphics[width=.95\textwidth]{../img/tikz/system-architecture/pic_sans_no-border}
+    \includegraphics[width=.75\textwidth]{../img/tikz/system-architecture/pic_sans_no-border}
   \end{figure}
 \end{frame}
 
@@ -354,34 +312,21 @@
 %
 \begin{frame}
   \frametitle{Архитектура клиентской части приложения}
-  \vskip -0.55cm
+  \vskip -0.25cm
   \begin{figure}[h]
     \centering
-    \includegraphics[width=.95\textwidth]{../img/tikz/fe-architecture/pic}
+    \includegraphics[width=.9\textwidth]{../img/tikz/fe-architecture/pic}
   \end{figure}
 \end{frame}
 
 
 %
-% "Home page"
+% UI
 %
 \begin{frame}
-  \frametitle{Разработка веб-приложения}
-  \vskip -0.5cm
-  \begin{figure}[h]
-    \centering
-    \includegraphics[width=.95\textwidth]{../img/reachview/home}
-  \end{figure}
-\end{frame}
-
-
-%
-% Responsive UI
-%
-\begin{frame}
-  \frametitle{Разработка веб-приложения}
+  \frametitle{Разработка веб-приложения (\,1\,)}
   \framesubtitle{Адаптивный интерфейс}
-  
+
   \begin{minipage}{\textwidth}
     \centering
     \begin{minipage}[c]{.5\textwidth}
@@ -409,14 +354,14 @@
 % Tabs
 %
 \begin{frame}
-  \frametitle{Разработка веб-приложения}
+  \frametitle{Разработка веб-приложения (\,2\,)}
   \framesubtitle{Разделение на интерфейса на секции}
 
   \begin{minipage}[c]{\textwidth}
     \centering
     \footnotesize
-    \vskip 0.5cm
-    \begin{minipage}[c]{.32\textwidth}
+    \vskip -1cm
+    \begin{minipage}[b]{.32\textwidth}
       \begin{itemize}
         \item<1> Статус
         \item<2> Изыскания
@@ -431,65 +376,66 @@
       \end{itemize}
     \end{minipage}
     \hspace{1em}
-    \begin{minipage}[c]{.64\textwidth}
+    \begin{minipage}[b]{.64\textwidth}
+      \vskip 1cm
       \only<1>{
         \begin{figure}[c]
           \centering
-          \includegraphics[width=\textwidth]{../img/reachview/status_content_laptop}
+          \includegraphics[height=5.5cm]{../img/reachview/status_content_laptop}
         \end{figure}
       }
       \only<2>{
         \begin{figure}[c]
           \centering
-          \includegraphics[width=\textwidth]{../img/reachview/survey_content_laptop}
+          \includegraphics[height=5.5cm]{../img/reachview/survey_content_laptop}
         \end{figure}
       }
       \only<3>{
         \begin{figure}[c]
           \centering
-          \includegraphics[width=\textwidth]{../img/reachview/rtk-settings_content_laptop}
+          \includegraphics[height=5.5cm]{../img/reachview/rtk-settings_content_laptop}
         \end{figure}
       }
       \only<4>{
         \begin{figure}[c]
           \centering
-          \includegraphics[width=\textwidth]{../img/reachview/correction-input_content_laptop}
+          \includegraphics[height=5.5cm]{../img/reachview/correction-input_content_laptop}
         \end{figure}
       }
       \only<5>{
         \begin{figure}[c]
           \centering
-          \includegraphics[width=\textwidth]{../img/reachview/position-output_content_laptop}
+          \includegraphics[height=5.5cm]{../img/reachview/position-output_content_laptop}
         \end{figure}
       }
       \only<6>{
         \begin{figure}[c]
           \centering
-          \includegraphics[width=\textwidth]{../img/reachview/base-mode_content_laptop}
+          \includegraphics[height=5.5cm]{../img/reachview/base-mode_content_laptop}
         \end{figure}
       }
       \only<7>{
         \begin{figure}[c]
           \centering
-          \includegraphics[width=\textwidth]{../img/reachview/logging_content_laptop}
+          \includegraphics[height=5.5cm]{../img/reachview/logging_content_laptop}
         \end{figure}
       }
       \only<8>{
         \begin{figure}[c]
           \centering
-          \includegraphics[width=\textwidth]{../img/reachview/camera-control_content_laptop}
+          \includegraphics[height=5.5cm]{../img/reachview/camera-control_content_laptop}
         \end{figure}
       }
       \only<9>{
         \begin{figure}[c]
           \centering
-          \includegraphics[width=\textwidth]{../img/reachview/wifi-bt_content_laptop}
+          \includegraphics[height=5.5cm]{../img/reachview/wifi-bt_content_laptop}
         \end{figure}
       }
       \only<10>{
         \begin{figure}[c]
           \centering
-          \includegraphics[width=\textwidth]{../img/reachview/settings_content_laptop}
+          \includegraphics[height=5.5cm]{../img/reachview/settings_content_laptop}
         \end{figure}
       }
     \end{minipage}
@@ -505,13 +451,11 @@
   {
     \Large
     \begin{itemize}
+      \setlength\itemsep{0.75em}
       \item Модульные тесты
       \item Интеграционные тесты
-      \item UI-тесты
-    \end{itemize}
-    
-    \begin{itemize}
-     \item \textbf{Beta-версии приложения для пользователей} \\ (с отзывами на форуме)
+      \item UI-тесты\\[1.25em]
+      \item \textbf{Beta-версии приложения для пользователей}\\[0.25em](с отзывами на форуме)
     \end{itemize}
   }
 \end{frame}
@@ -525,11 +469,12 @@
   {
     \large
     \begin{itemize}
+      \setlength\itemsep{1em}
       \item[1.] Изучен процесс работы с~GPS-приёмниками в~режиме RTK
       \item[2.] Создано веб-приложение для работы с~программным комплексом RTKLIB, которое соответствует всем предъявленным требованиям
       \item[3.] Созданное приложение протестировано и~внедрено
       \item[4.] Налажен процесс общения с~пользователями, что позволяет получать отзывы и~отчёты об ошибках
-      \item[5.] Создано \textbf{два} канала получения обновлений приложения
+      \item[5.] Создано два канала получения обновлений приложения
     \end{itemize}
   }
 \end{frame}
