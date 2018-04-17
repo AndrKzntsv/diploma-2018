@@ -185,22 +185,22 @@
   \frametitle{Обзор существующих решений (\,1\,)}
   \framesubtitle{Интерфейсы для управления приёмниками}
 
-  \begin{textblock*}{3cm}(0.5cm,0.5cm)
+  \begin{textblock*}{3cm}(0.5cm,-2.5cm)
     \includegraphics[width=\textwidth]{../img/trimble-tsc3}
   \end{textblock*}
-  \begin{textblock*}{3cm}(2cm,4.5cm)
+  \begin{textblock*}{3cm}(2cm,2cm)
     \includegraphics[width=\textwidth]{../img/leica-gs16}
   \end{textblock*}
-  \begin{textblock*}{1.5cm}(5.5cm,1cm)
+  \begin{textblock*}{1.5cm}(6.5cm,-1cm)
     \includegraphics[width=\textwidth]{../img/javad-mobile-tools}
   \end{textblock*}
-  \begin{textblock*}{3cm}(4cm,1.5cm)
+  \begin{textblock*}{3cm}(5cm,-0.5cm)
     \includegraphics[width=\textwidth]{../img/javad-victor}
   \end{textblock*}
-  \begin{textblock*}{3.5cm}(7.75cm,0.5cm)
+  \begin{textblock*}{3.25cm}(9.5cm,-2.5cm)
     \includegraphics[width=\textwidth]{../img/javad-netbrowser}
   \end{textblock*}
-  \begin{textblock*}{1.75cm}(7.25cm,4cm)
+  \begin{textblock*}{1.5cm}(12cm,1.25cm)
     \includegraphics[width=\textwidth]{../img/drotek-web}
   \end{textblock*}
 \end{frame}
@@ -357,11 +357,11 @@
   \frametitle{Разработка веб-приложения (\,2\,)}
   \framesubtitle{Разделение на интерфейса на секции}
 
-  \begin{minipage}[c]{\textwidth}
-    \centering
-    \footnotesize
-    \vskip -1cm
-    \begin{minipage}[b]{.32\textwidth}
+  \begin{columns}[T]
+%    \centering
+%    \footnotesize
+%    \vskip -1cm
+    \begin{column}[T]{.32\textwidth}
       \begin{itemize}
         \item<1> Статус
         \item<2> Изыскания
@@ -374,10 +374,9 @@
         \item<9> Wi-Fi/Bluetooth
         \item<10> Настройки
       \end{itemize}
-    \end{minipage}
+    \end{column}
     \hspace{1em}
-    \begin{minipage}[b]{.64\textwidth}
-      \vskip 1cm
+    \begin{column}{.64\textwidth}
       \only<1>{
         \begin{figure}[c]
           \centering
@@ -393,7 +392,7 @@
       \only<3>{
         \begin{figure}[c]
           \centering
-          \includegraphics[height=5.5cm]{../img/reachview/rtk-settings_content_laptop}
+          \includegraphics[height=4.25cm]{../img/reachview/rtk-settings_content_laptop}
         \end{figure}
       }
       \only<4>{
@@ -403,15 +402,16 @@
         \end{figure}
       }
       \only<5>{
+        \vskip 1cm
         \begin{figure}[c]
           \centering
-          \includegraphics[height=5.5cm]{../img/reachview/position-output_content_laptop}
+          \includegraphics[height=3cm]{../img/reachview/position-output_content_laptop}
         \end{figure}
       }
       \only<6>{
         \begin{figure}[c]
           \centering
-          \includegraphics[height=5.5cm]{../img/reachview/base-mode_content_laptop}
+          \includegraphics[height=5cm]{../img/reachview/base-mode_content_laptop}
         \end{figure}
       }
       \only<7>{
@@ -421,9 +421,10 @@
         \end{figure}
       }
       \only<8>{
+        \vskip 0.5cm
         \begin{figure}[c]
           \centering
-          \includegraphics[height=5.5cm]{../img/reachview/camera-control_content_laptop}
+          \includegraphics[height=3.5cm]{../img/reachview/camera-control_content_laptop}
         \end{figure}
       }
       \only<9>{
@@ -435,11 +436,11 @@
       \only<10>{
         \begin{figure}[c]
           \centering
-          \includegraphics[height=5.5cm]{../img/reachview/settings_content_laptop}
+          \includegraphics[height=4.75cm]{../img/reachview/settings_content_laptop}
         \end{figure}
       }
-    \end{minipage}
-  \end{minipage}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 
