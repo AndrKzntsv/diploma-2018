@@ -1,0 +1,81 @@
+% !TEX program = xelatex
+% !TeX spellcheck = ru_RU_yo
+
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{amsmath}
+\usepackage{fontspec}
+\setmainfont{CMU Serif}
+
+\usepackage{pgfplots}
+
+\usepackage{polyglossia}
+\setdefaultlanguage[spelling=modern]{russian}
+\newfontfamily{\cyrillicfont}{PT Astra Sans}
+\newfontfamily{\cyrillicfontsf}{PT Astra Sans}
+\newfontfamily{\cyrillicfonttt}{PT Mono}
+
+\usetikzlibrary{arrows.meta,fit,calc}
+
+\tikzset{scheme part/.style={
+  black,
+  very thick,
+  inner sep=0pt,
+  draw=black,
+  font=\huge,
+  rounded corners=2mm
+}}
+
+\begin{document}
+
+\begin{tikzpicture}
+  \draw[opacity=0] (-8.1,-6.1) grid (16.1,2.1);
+
+  \draw[scheme part]
+    (0,0) rectangle (8,2)
+    node[align=center, pos=.5] {Представление};
+
+  \draw[scheme part]
+    (8,-6) rectangle (16,-4)
+    node[align=center, pos=.5] {Действия};
+
+  \draw[scheme part]
+    (-8,-6) rectangle (0,-4)
+    node[align=center, pos=.5] {Состояние};
+
+  \draw[
+    -{Latex[length=3.5mm]},
+    ultra thick,
+    dashed,
+    rounded corners=2mm
+  ] (8,1) -| (12,-4) node[
+    pos=0.75,
+    right,
+    xshift=5pt,
+    font=\LARGE
+  ] {Вызывает};
+
+  \draw[
+    -{Latex[length=3.5mm]},
+    ultra thick,
+    dashed
+  ] (8,-5) -- (0,-5) node[
+    pos=0.5,
+    below,
+    yshift=-5pt,
+    font=\LARGE
+  ] {Изменяют};
+  
+  \draw[
+    -{Latex[length=3.5mm]},
+    ultra thick,
+    dashed,
+    rounded corners=2mm
+  ] (-4,-4) |- (0,1) node[
+    pos=0.25,
+    left,
+    xshift=-5pt,
+    font=\LARGE
+  ] {Обновляет};
+\end{tikzpicture}
+\end{document}
