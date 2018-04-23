@@ -1034,7 +1034,7 @@ FUNCTION {format.annoteurl}       %%%%%%%% правлено
 { annote empty$ url empty$ or
     { "" }
 { after.sentence 'output.state :=
-  "URL:" "~" * url * " " * "\BibAnnote{" * annote * "}" *
+  "- Режим доступа:" "~" * url * " " * "\BibAnnote{" * annote * "}" *
 }
   if$
 }
