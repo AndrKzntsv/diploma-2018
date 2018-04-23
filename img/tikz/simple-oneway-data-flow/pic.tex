@@ -3,7 +3,6 @@
 
 \documentclass[crop,tikz]{standalone}
 
-\usepackage{amsmath}
 \usepackage{fontspec}
 \setmainfont{CMU Serif}
 
@@ -15,7 +14,7 @@
 \newfontfamily{\cyrillicfontsf}{PT Astra Sans}
 \newfontfamily{\cyrillicfonttt}{PT Mono}
 
-\usetikzlibrary{arrows.meta,fit,calc}
+\usetikzlibrary{arrows.meta}
 
 \tikzset{scheme part/.style={
   black,
@@ -46,7 +45,6 @@
   \draw[
     -{Latex[length=3.5mm]},
     ultra thick,
-    dashed,
     rounded corners=2mm
   ] (8,1) -| (12,-4) node[
     pos=0.75,
@@ -57,8 +55,7 @@
 
   \draw[
     -{Latex[length=3.5mm]},
-    ultra thick,
-    dashed
+    ultra thick
   ] (8,-5) -- (0,-5) node[
     pos=0.5,
     below,
@@ -69,7 +66,6 @@
   \draw[
     -{Latex[length=3.5mm]},
     ultra thick,
-    dashed,
     rounded corners=2mm
   ] (-4,-4) |- (0,1) node[
     pos=0.25,
