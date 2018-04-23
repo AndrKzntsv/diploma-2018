@@ -1,0 +1,124 @@
+% !TEX program = xelatex
+% !TeX spellcheck = ru_RU_yo
+
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{fontspec}
+\setmainfont{CMU Serif}
+
+\usepackage{pgfplots}
+
+\usepackage{polyglossia}
+\setdefaultlanguage[spelling=modern]{russian}
+\newfontfamily{\cyrillicfont}{PT Astra Sans}
+\newfontfamily{\cyrillicfontsf}{PT Astra Sans}
+\newfontfamily{\cyrillicfonttt}{PT Mono}
+
+\usetikzlibrary{arrows.meta}
+
+\tikzset{scheme part/.style={
+  black,
+  very thick,
+  inner sep=0pt,
+  draw=black,
+  font=\huge,
+  rounded corners=2mm
+}}
+
+\begin{document}
+
+\begin{tikzpicture}
+  \draw[opacity=0] (-0.1,-5.1) grid (23.1,10.1);
+
+  \draw[scheme part]
+    (0,0) rectangle (6,2)
+    node[align=center, pos=.5] {Компоненты};
+
+  \draw[scheme part]
+    (8,4) rectangle (14,6)
+    node[align=center, pos=.5] {Действия};
+
+  \draw[scheme part]
+    (8,8) rectangle (14,10)
+    node[align=center, pos=.5] {Сервер};
+
+  \draw[scheme part]
+    (16,0) rectangle (22,2)
+    node[align=center, pos=.5] {Мутации};
+
+  \draw[scheme part]
+    (8,-4) rectangle (14,-2)
+    node[align=center, pos=.5] {Состояние};
+
+  \draw[
+    -{Latex[length=3.5mm]},
+    ultra thick,
+    rounded corners=2mm
+  ] (3,2) |- (8,5) node[
+    pos=0.25,
+    left,
+    xshift=-5pt,
+    font=\LARGE
+  ] {Вызывает};
+
+    
+  \draw[
+    -{Latex[length=3.5mm]},
+    ultra thick
+  ] (6,1) -- (16,1) node[
+    pos=0.5,
+    below,
+    yshift=-5pt,
+    font=\LARGE
+  ] {Инициирует};
+
+  \draw[
+    -{Latex[length=3.5mm]},
+    ultra thick,
+    rounded corners=2mm
+  ] (14,5) -| (19,2) node[
+    pos=0.75,
+    right,
+    xshift=5pt,
+    font=\LARGE
+  ] {Инициируют};
+
+  \draw[
+    {Latex[length=3.5mm]}-{Latex[length=3.5mm]},
+    ultra thick
+  ] (11,6) -- (11,8);
+
+  \draw[
+    -{Latex[length=3.5mm]},
+    ultra thick,
+    rounded corners=2mm
+  ] (19,0) |- (14,-3) node[
+    pos=0.25,
+    right,
+    xshift=5pt,
+    font=\LARGE
+  ] {Изменяют};
+
+  \draw[
+    -{Latex[length=3.5mm]},
+    ultra thick,
+    rounded corners=2mm
+  ] (8,-3) -| (3,0) node[
+    pos=0.75,
+    left,
+    xshift=-5pt,
+    font=\LARGE
+  ] {Обновляет};
+
+  \draw[
+    ultra thick,
+    dashed,
+    rounded corners=2mm
+  ] (7,-5) rectangle (23,7) node[
+    anchor=north east,
+    xshift=-5pt,
+    yshift=-5pt,
+    font=\huge
+  ] {Vuex};
+\end{tikzpicture}
+\end{document}
