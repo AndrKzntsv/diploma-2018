@@ -401,6 +401,24 @@
 
 
 % ---------------------------------------------------------------------------- %
+%                                   Listings                                   %
+% ---------------------------------------------------------------------------- %
+
+\RequirePackage{listings}
+
+\lstset{
+  basicstyle=\footnotesize,
+  breakatwhitespace=\true,
+  breaklines=\true,
+  extendedchars = \true,
+  numbers=left,
+  numberstyle=\footnotesize,
+  tabsize=2,
+  frame=single
+}
+
+
+% ---------------------------------------------------------------------------- %
 %                                   Captions                                   %
 % ---------------------------------------------------------------------------- %
 
@@ -408,6 +426,9 @@
 
 \counterwithin{figure}{section}
 \counterwithin{table}{section}
+\AtBeginDocument{
+  \counterwithin{lstlisting}{section}
+}
 
 \RequirePackage{caption}
 
@@ -423,6 +444,18 @@
   singlelinecheck=off
 }
 
+\DeclareCaptionFormat{listing}{
+  \parbox{\textwidth}{#1#2#3}
+}
+\captionsetup[lstlisting]{
+  format=listing,
+  labelsep=endash,
+  skip=7pt,
+  justification=raggedright
+}
+
 \AtBeginDocument{
   \renewcommand{\figurename}{Рисунок}
 }
+
+\renewcommand\lstlistingname{Листинг}
