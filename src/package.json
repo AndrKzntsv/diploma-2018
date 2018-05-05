@@ -1,0 +1,37 @@
+{
+  "name": "ReachView",
+  "version": "1.0.0",
+  "description": "Reach/Reach RS controller app",
+  "author": "Emlid Ltd <info@emlid.com>",
+  "private": true,
+  "scripts": {
+    "dev": "node build/dev-server.js",
+    "build": "node build/build.js",
+    "unit": "karma start test/unit/karma.conf.js --single-run",
+    ...
+  },
+  "dependencies": {
+    ...
+    "babel-core": "^6.22.1",
+    "babel-eslint": "8.1.0",
+    "d3": "^4.10.2",
+    "eslint": "4.11.0",
+    "openlayers": "^4.6.4",
+    "socket.io-client": "1.4.5",
+    "vue": "2.5.7",
+    "vue-i18n": "^7.0.5",
+    "vue-loader": "12.2.2",
+    "vuex": "^3.0.1",
+    "webpack": "2.6.1",
+    ...
+  },
+  "devDependencies": {
+    ...
+    "chai": "^4.1.2",
+    "express": "^4.14.1",
+    "karma": "^1.4.1",
+    "mocha": "^3.2.0",
+    "sinon": "^2.1.0",
+    ...
+  }
+}
