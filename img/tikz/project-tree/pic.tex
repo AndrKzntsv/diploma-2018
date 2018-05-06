@@ -1,0 +1,109 @@
+% !TEX program = xelatex
+% !TeX spellcheck = ru_RU_yo
+
+\documentclass[crop,tikz]{standalone}
+
+\usepackage{fontspec}
+\setmainfont{CMU Serif}
+
+\usepackage{polyglossia}
+\setdefaultlanguage[spelling=modern]{russian}
+\newfontfamily{\cyrillicfont}{PT Astra Sans}
+\newfontfamily{\cyrillicfontsf}{PT Astra Sans}
+\newfontfamily{\cyrillicfonttt}{PT Mono}
+
+\usetikzlibrary{calc,arrows.meta}
+
+\definecolor{darkgray}{RGB}{85,85,85}
+
+\newcounter{treeline}
+
+\newcommand{\treeroot}[1]{ % Title
+  \node[above] at (0,1) {\texttt{#1}};
+
+  \setcounter{treeline}{0}
+}
+
+\newcommand{\treeentry}[2]{ % Title, Level
+  \draw[thick]
+    (#2 - 1, -\value{treeline} * 2 + 1) --
+    (#2 - 1, -\value{treeline} - \value{treeline} - 1) --
+    (#2 + 1, -\value{treeline} - \value{treeline} - 1) node[right] {\texttt{#1}};
+
+  \node at (#2 + 1, -\value{treeline} - \value{treeline} - 1) [yshift=-3pt] {\textbullet};
+
+  \foreach \x in {1,...,#2}
+  {
+    \draw[thick]
+      (\x - 1, -\value{treeline} * 2 + 1) --
+      (\x - 1, -\value{treeline} - \value{treeline} - 1);
+  }
+
+  \stepcounter{treeline}
+}
+
+\newcommand{\treeentrycommented}[4]{ % Title, Level, Dummy node, Comment
+  \draw[thick]
+    (#2 - 1, -\value{treeline} * 2 + 1) --
+    (#2 - 1, -\value{treeline} - \value{treeline} - 1) --
+    (#2 + 1, -\value{treeline} - \value{treeline} - 1) node[right] (#3) {\texttt{#1}};
+
+  \node at (#2 + 1, -\value{treeline} - \value{treeline} - 1) [yshift=-3pt] {\textbullet};
+  
+  \draw[
+    gray,
+    line width=3pt, line cap=round, dash pattern=on 0pt off 10pt
+  ] (#3) -- (20, -\value{treeline} - \value{treeline} - 1) node[darkgray,right] {#4};
+
+  \foreach \x in {1,...,#2}
+  {
+    \draw[thick]
+      (\x - 1, -\value{treeline} * 2 + 1) --
+      (\x - 1, -\value{treeline} - \value{treeline} - 1);
+  }
+  
+  \stepcounter{treeline}
+}
+
+\begin{document}
+
+\begin{tikzpicture}
+  \fontsize{30}{36}\selectfont
+  
+  \treeroot{\textbf{static-src/}}
+    \treeentrycommented{\textbf{build/}}{1}{webpack}{Конфигурационные файлы Webpack}
+      \treeentry{*.conf.js}{2}
+    \treeentrycommented{\textbf{src/}}{1}{src}{Исходные файлы JavaScript-приложения}
+      \treeentrycommented{\textbf{assets/}}{2}{assets}{Ресурсы приложения: стили и изображения}
+        \treeentry{\textbf{images/}}{3}
+          \treeentry{*.png, *.svg}{4}
+        \treeentry{\textbf{styles/}}{3}
+          \treeentry{*.css, *.scss}{4}
+      \treeentry{\textbf{components/}}{2}
+        \treeentrycommented{\textbf{common/}}{3}{common}{Вспомогательные компоненты}
+          \treeentry{Alert.vue}{4}
+          \treeentry{Button.vue}{4}
+          \treeentry{...}{4}
+        \treeentrycommented{\textbf{tabs/}}{3}{tabs}{Модели представления и представления вкладок}
+          \treeentry{\textbf{CameraControl/}}{4}
+            \treeentry{index.vue}{5}
+            \treeentry{style.scss}{5}
+            \treeentry{template.html}{5}
+          \treeentry{...}{4}
+        \treeentry{BatteryIcon.vue}{3}
+        \treeentry{Logo.vue}{3}
+        \treeentry{...}{3}
+      \treeentrycommented{\textbf{modules/}}{2}{modules}{Модули приложения}
+        \treeentry{*.js}{3}
+      \treeentrycommented{\textbf{store/}}{2}{vuex}{Хранилище Vuex}
+        \treeentry{\textbf{modules/}}{3}
+        \treeentry{index.js}{3}
+      \treeentrycommented{main.js}{2}{main}{\textbf{Точка входа}}
+    \treeentrycommented{\textbf{test/}}{1}{tests}{Модульные тесты}
+      \treeentry{\textbf{specs/}}{2}
+      \treeentry{index.js}{2}
+      \treeentry{karma.conf.js}{2}
+    \treeentry{index.html}{1}
+\end{tikzpicture}
+
+\end{document}
