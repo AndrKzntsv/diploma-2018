@@ -459,3 +459,40 @@
 }
 
 \renewcommand\lstlistingname{Листинг}
+
+
+% ---------------------------------------------------------------------------- %
+%                                    Utils                                     %
+% ---------------------------------------------------------------------------- %
+
+\RequirePackage{calc}
+
+\newlength{\remaining}
+
+\newcommand{\titledline}[1]{
+  \setlength{\remaining}{\textwidth-\widthof{#1}-5pt}
+  #1
+}
+
+\newlength{\signaturewidth}
+\setlength{\signaturewidth}{3cm}
+
+\newcommand{\addsignatureskip}{
+  \addtolength{\remaining}{-\signaturewidth-0.7cm}
+}
+
+\newcommand{\signature}{
+  $\underset{\text{\scriptsize (подпись)}}{\underline{\strut\hspace{\signaturewidth}}}$
+}
+
+\newcommand{\datetemplate}{
+  <<\,\underline{\hspace{1cm}}\,>>
+  \hspace{0.2cm}
+  \underline{\hspace{3.5cm}}
+  \hspace{0.2cm}
+  20\,\underline{\hspace{0.75cm}}\,г.
+}
+
+\renewcommand{\strut}{
+  \rule[-.12\baselineskip]{0pt}{\baselineskip}
+}
