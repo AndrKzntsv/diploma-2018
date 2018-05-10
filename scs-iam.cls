@@ -416,10 +416,11 @@
 \RequirePackage{listings}
 
 \lstset{
-  basicstyle=\footnotesize,
+  basicstyle=\footnotesize\ttfamily,
   breakatwhitespace=\true,
   breaklines=\true,
   extendedchars = \true,
+  keepspaces=true,
   numbers=left,
   numberstyle=\footnotesize,
   tabsize=2,
