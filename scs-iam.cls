@@ -311,6 +311,22 @@
 
 
 % ---------------------------------------------------------------------------- %
+%                                  Appendices                                  %
+% ---------------------------------------------------------------------------- %
+
+\RequirePackage{appendix}
+
+\renewcommand{\appendixname}{ПРИЛОЖЕНИЕ}
+
+\renewenvironment{appendices}{
+  \setcounter{section}{0}
+  \renewcommand{\thesection}{\appendixname~\Alph{section}}
+  
+  \renewcommand{\cftsecleader}{\hspace{1cm}\cftdotfill{\cftdotsep}}
+}
+
+
+% ---------------------------------------------------------------------------- %
 %                                    Lists                                     %
 % ---------------------------------------------------------------------------- %
 
