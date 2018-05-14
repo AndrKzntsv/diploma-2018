@@ -5,20 +5,24 @@
 <script>
   export default {
     props: {
-      title: {                   // Текст
+      // Текст
+      title: {
         type: String,
         default: null
       },
-      value: {                   // Значение
+      // Значение
+      value: {
         type: Boolean,
         required: true
       },
-      color: {                   // Цвет
+      // Цвет
+      color: {
         type: String,
         default: 'success',
         validator(color) { ... }
       },
-      disabled: {                // Доступность для изменения
+      // Доступность для изменения
+      disabled: {
         type: Boolean,
         default: false
       }
