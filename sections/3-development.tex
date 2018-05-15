@@ -382,7 +382,25 @@ Vuex решает проблему, описанную выше, вводя в~�
 \begin{figure}[h!]
   \centering
   \setlength{\fboxsep}{5pt}
-  \includegraphics[width=.75\textwidth]{example-image}
+  \fbox{
+    \parbox{.9\textwidth}{
+      {
+        \footnotesize\ttfamily
+        \$ npm run test \\
+
+        ...\\
+
+        Executed 148 of 154 (skipped 6) SUCCESS (6.701 secs / 5.888 secs) \\
+        TOTAL: 148 SUCCESS \\
+
+        ========================== Coverage summary ==========================\\
+        Statements~: 58.99\% ( 1109/1880 )\\
+        Branches~~~: 51.66\% ( 606/1173 )\\
+        Functions~~: 47.92\% ( 115/240 )\\
+        Lines~~~~~~: 59.58\% ( 1088/1826 )\\
+        ======================================================================
+    }}
+  }
   \vspace*{6pt}
   \caption{Запуск тестов с помощью утилиты Karma}
   \label{fig:karma-output}
