@@ -322,7 +322,7 @@
   \setcounter{section}{0}
   \renewcommand{\thesection}{\appendixname~\Alph{section}}
   
-  \renewcommand{\cftsecleader}{\hspace{1cm}\cftdotfill{\cftdotsep}}
+  \addtocontents{toc}{\setlength{\cftsecnumwidth}{15ex}}
 }
 
 
