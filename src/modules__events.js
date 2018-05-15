@@ -22,7 +22,8 @@ export default () => {
   socket.on('disconnect', () => {
     lostConnectionNoty = noty({
       width: 200,
-      text: 'Lost connection with Reach. Please check your network, then try refreshing the page',
+      text: `Lost connection with Reach. Please check your network,
+             then try refreshing the page`,
       type: 'error',
       dismissQueue: true,
       closeWith: false,
