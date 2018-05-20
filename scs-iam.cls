@@ -320,7 +320,7 @@
 
 \renewenvironment{appendices}{
   \setcounter{section}{0}
-  \renewcommand{\thesection}{\appendixname~\Alph{section}}
+  \renewcommand{\thesection}{\appendixname~\Asbuk{section}}
   
   \addtocontents{toc}{\setlength{\cftsecnumwidth}{15ex}}
 }
