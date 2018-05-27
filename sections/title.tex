@@ -43,9 +43,9 @@
 \begin{flushright}
   {
     \small
-    \begin{minipage}{.83\textwidth}
+    \begin{minipage}{.7\textwidth}
       \titledline{Автор}\addsignatureskip
-      \hspace{-5pt}$\underset{\text{\scriptsize (фамилия, имя, отчество)}}{\underline{\makebox[\remaining][s]{\strut\hfill Кузнецов Андрей Андреевич\hfill}}}$
+      \hspace{-5pt}$\underset{\text{\scriptsize (Фамилия, Имя, Отчество)}}{\underline{\makebox[\remaining][s]{\strut\hfill Кузнецов Андрей Андреевич\hfill}}}$
       \hfill
       \signature \\[-0.5em]
 
@@ -57,12 +57,12 @@
       $\underset{\text{\scriptsize (бакалавр, магистр)}}{\underline{\makebox[\remaining][s]{\strut\hfill магистр\hfill}}}$ \\[-0.5em]
 
       \titledline{Руководитель}\addsignatureskip
-      $\underset{\text{\scriptsize (Фамилия, И., О.,  ученое звание, степень)}}{\underline{\makebox[\remaining][s]{\strut\hfill Соснин Владимир Валерьевич, к.т.н., доцент\hfill}}}$
+      $\underset{\text{\scriptsize (Фамилия, И., О.,  ученое звание, степень)}}{\underline{\makebox[\remaining][s]{\strut\hfill Соснин В.В., к.т.н., доцент\hfill}}}$
       \hfill\signature \\[3em]
 
       \textbf{К защите допустить} \\[0.25em]
       \titledline{Зав.кафедрой}\addsignatureskip
-      $\underset{\text{(Фамилия, И., О.,  ученое звание, степень)}}{\underline{\makebox[\remaining][s]{\strut\hfill Муромцев Дмитрий Ильич, к.т.н., доцент\hfill}}}$
+      $\underset{\text{(Фамилия, И., О.,  ученое звание, степень)}}{\underline{\makebox[\remaining][s]{\strut\hfill Муромцев Д.И., к.т.н., доцент\hfill}}}$
       \hfill\signature \\[-0.25em]
 
       \hfill\datetemplate
@@ -80,3 +80,56 @@
 \end{center}
 
 \restoregeometry
+
+\clearpage
+
+\newgeometry{
+  top=20mm,
+  right=20mm,
+  bottom=20mm,
+  left=15mm,
+  bindingoffset=0cm
+}
+
+\thispagestyle{empty}
+
+{
+  \small
+  \parindent0pt
+
+  Студент
+  $\underset{\text{\scriptsize (Фамилия, Имя, Отчество)}}{\underline{\text{\strut ~Кузнецов Андрей Андреевич~}}}$
+  \hfill
+  Группа
+  $\underline{\text{\strut ~P4215~}}$
+  \hfill
+  Кафедра
+  $\underline{\text{\strut ~ИПМ~}}$
+  \hfill
+  Факультет
+  $\underline{\text{\strut ~ПИиКТ~}}$ \\[-0.5em]
+
+  \titledline{Направленность (профиль), специализация}
+  $\underline{\makebox[\remaining][s]{\strut\hfill 09.04.01 --\hfill}}$
+  $\underline{\makebox[\textwidth][s]{\strut\hfill Математические модели и компьютерное моделирование\hfill}}$ \\[0.25em]
+
+  ВКР принята \datetemplate \\[-1em]
+
+  Оригинальность ВКР $\underline{\makebox[7em][s]{\strut}}$\,\% \\[-1em]
+
+  ВКР выполнена с оценкой $\underline{\makebox[12em][s]{\strut}}$ \\[-1em]
+
+  Дата защиты \datetemplate \\[-1em]
+
+  \titledline{Секретарь ГЭК}\addsignatureskip
+  $\underset{\text{\scriptsize (Фамилия, И., О.)}}{\underline{\makebox[\remaining][s]{\strut}}}$
+  \hfill\signature \\[0.25em]
+
+  Листов хранения $\underline{\makebox[12em][s]{\strut}}$ \\[-1em]
+
+  Демонстрационных материалов/Чертежей хранения $\underline{\makebox[12em][s]{\strut}}$
+}
+
+\restoregeometry
+
+\clearpage
