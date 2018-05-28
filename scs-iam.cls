@@ -492,6 +492,9 @@
 % ---------------------------------------------------------------------------- %
 
 \RequirePackage{calc}
+\RequirePackage[normalem]{ulem}
+
+\renewcommand{\strut}{\rule[-.12\baselineskip]{0pt}{\baselineskip}}
 
 \newlength{\remaining}
 
@@ -508,7 +511,11 @@
 }
 
 \newcommand{\signature}{
-  $\underset{\text{\scriptsize (подпись)}}{\underline{\strut\hspace{\signaturewidth}}}$
+  $\underset{
+    \text{\scriptsize (подпись)}
+  }{
+    \underline{\strut\hspace{\signaturewidth}}
+  }$
 }
 
 \newcommand{\datetemplate}{
