@@ -1,0 +1,78 @@
+% !TeX spellcheck = ru_RU_yo
+% !TEX program = xelatex
+
+\documentclass[pta]{../../scs-iam}
+
+\usepackage{multicol}
+
+\begin{document}
+  \newgeometry{
+    top=20mm,
+    right=15mm,
+    bottom=20mm,
+    left=20mm,
+    bindingoffset=0cm
+  }
+
+  \parindent0pt
+
+  \thispagestyle{empty}
+  
+  \setlength{\columnsep}{.1\textwidth}
+  {
+    \small
+    \begin{multicols}{2}
+      \raggedcolumns
+
+      \begin{minipage}{.45\textwidth}
+        Утверждено на заседании кафедры \\[-1.5em]
+
+        $\underset{\text{(название кафедры)}}{\underline{\makebox[\textwidth][s]{~Информатики и прикладной математики\hfill}}}$ \\[-0.5em]
+
+        <<$\underline{\makebox[1.5em][s]{\hfill}}$>>\,
+        $\underline{\makebox[4.5em][s]{\hfill}}$\,
+        20$\underline{\makebox[1.5em][s]{\hfill}}$г.,\hfill
+        протокол №$\underline{\makebox[2em][s]{\hfill}}$ \\[-1em]
+
+        \titledline{Зав.кафедрой}
+        $\underset{\text{(подпись)}}{\underline{\makebox[\remaining][s]{\strut\hfill}}}$
+      \end{minipage}
+
+      \columnbreak
+
+      \begin{minipage}{.45\textwidth}
+        Заведующему кафедрой \\[-1.5em]
+
+        $\underset{\text{(название кафедры)}}{\underline{\makebox[\textwidth][s]{~Информатики и прикладной математики\hfill}}}$ \\[-0.6em]
+        
+        $\underset{\text{(инициалы фамилия зав.кафедрой)}}{\underline{\makebox[\textwidth][s]{~Муромцеву Д.И. \hfill}}}$ \\[-0.5em]
+        
+        \titledline{от студента гр.}
+        $\underset{\text{(номер группы)}}{\underline{\makebox[\remaining][s]{\strut\hfill P4215\hfill}}}$ \\[-0.6em]
+        
+        $\underset{\text{(фамилия, имя, отчество студента)}}{\underline{\makebox[\textwidth][s]{~Кузнецова Андрея Андреевича\hfill}}}$
+      \end{minipage}
+    \end{multicols}
+  }
+
+  \vspace{0.5em}
+
+  \begin{center}
+    ЗАЯВЛЕНИЕ
+  \end{center}
+
+  \vspace{-0.5em}
+
+  Прошу утвердить мне тему выпускной квалификационной работы
+
+  \uline{<<Разработка веб-приложения для работы с программным пакетом высокоточного позиционирования RTKLIB>>\hfill}\\
+
+  \titledline{Руководитель}
+  \hspace{-5pt}$\underset{\text{\scriptsize (фамилия, имя, отчество, ученая степень, ученое звание) }}{\underline{\makebox[\remaining][s]{\strut Соснин Владимир Валерьевич, к.т.н., доцент\hfill}}}$ \\[-0.5em]
+
+  Подпись студента \signature \\[-0.5em]
+
+  Дата \datetemplate \\[-0.5em]
+
+  Согласие руководителя \signature
+\end{document}
