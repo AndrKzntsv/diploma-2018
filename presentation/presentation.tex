@@ -59,6 +59,7 @@
 %
 {
   \setbeamertemplate{footline}{}
+
   \begin{frame}
     \titlepage
   \end{frame}
@@ -70,6 +71,8 @@
 %
 \begin{frame}
   \frametitle{Дифференциальная GPS}
+  
+  \large
 
   \begin{center}
     \textbf{Дифференциальная GPS} -- система, предназначенная для повышения\\точности сигналов GPS.
@@ -176,9 +179,11 @@
   \begin{center}
     {
       \Large
-      \textbf{Предмет исследования} -- процесс взаимодействия пользователя с~программными компонентами пакета RTKLIB.
+      \textbf{Объект исследования} -- программный пакет высокоточного позиционирования RTKLIB.
       \vskip .75cm
-      \textbf{Цель работы} -- создание приложения, позволяющего\\[0.35em]взаимодействовать с~RTKLIB через веб-браузер.
+      \textbf{Предмет исследования} -- процесс взаимодействия пользователя с~программными компонентами RTKLIB.
+      \vskip .75cm
+      \textbf{Цель работы} -- создание веб-приложения для обеспечения\\взаимодействия пользователя с~программным пакетом RTKLIB,\\используемом во~встраиваемом решении.\\
     }
   \end{center}
 \end{frame}
@@ -187,30 +192,16 @@
 %
 % Receivers review
 %
-\begin{frame}
-  \frametitle{Обзор существующих решений (\,1\,)}
-  \framesubtitle{Интерфейсы для управления приёмниками}
+{
+  \usebackgroundtemplate{
+    \includegraphics[width=\paperwidth]{../img/presentation/controllers}
+  }
 
-  \begin{textblock*}{3cm}(0.5cm,-2.5cm)
-    \includegraphics[width=\textwidth]{../img/trimble-tsc3}
-  \end{textblock*}
-  \begin{textblock*}{3cm}(2cm,2cm)
-    \includegraphics[width=\textwidth]{../img/leica-gs16}
-  \end{textblock*}
-  \begin{textblock*}{1.5cm}(6.5cm,-1cm)
-    \includegraphics[width=\textwidth]{../img/javad-mobile-tools}
-  \end{textblock*}
-  \begin{textblock*}{3cm}(5cm,-0.5cm)
-    \includegraphics[width=\textwidth]{../img/javad-victor}
-  \end{textblock*}
-  \begin{textblock*}{3.25cm}(9.5cm,-2.5cm)
-    \includegraphics[width=\textwidth]{../img/javad-netbrowser}
-  \end{textblock*}
-  \begin{textblock*}{1.5cm}(12cm,1.25cm)
-    \includegraphics[width=\textwidth]{../img/drotek-web}
-  \end{textblock*}
-\end{frame}
-
+  \begin{frame}
+    \frametitle{Обзор существующих решений (\,1\,)}
+    \framesubtitle{Интерфейсы для управления приёмниками}
+  \end{frame}
+}
 
 %
 % Web apps review
@@ -241,37 +232,18 @@
   \end{minipage}
 \end{frame}
 
-
 %
 % Reach & Reach RS
 %
-\begin{frame}
-  \frametitle{Платформа для разработки}
-  
-  \begin{minipage}{\textwidth}
-    \centering
-    \includegraphics[width=.25\textwidth]{../img/emlid-logo}
-    \vskip 1.25cm
-    \begin{minipage}[c]{.45\textwidth}
-      \centering
-      \begin{figure}[h]
-        \centering
-        \includegraphics[height=3.5cm]{../img/reach}
-      \end{figure}
-      Reach
-    \end{minipage}
-    \hspace{1em}
-    \begin{minipage}[c]{.45\textwidth}
-      \centering
-      \begin{figure}[h]
-        \centering
-        \includegraphics[height=3.5cm]{../img/reach-rs}
-      \end{figure}
-      Reach RS
-    \end{minipage}
-  \end{minipage}
-\end{frame}
+{
+  \usebackgroundtemplate{
+    \includegraphics[width=\paperwidth]{../img/presentation/emlid-devices}
+  }
 
+  \begin{frame}
+    \frametitle{Платформа для разработки}
+  \end{frame}
+}
 
 %
 % Required features
@@ -440,7 +412,8 @@
       \only<9>{
         \begin{figure}[c]
           \centering
-          \includegraphics[height=5.5cm]{../img/reachview/wifi-bt_content_laptop}
+          \includegraphics[width=.8\textwidth]{../img/reachview/wifi_content_laptop}\\
+          \includegraphics[width=.8\textwidth]{../img/reachview/bt_content_laptop}
         \end{figure}
       }
       \only<10>{
@@ -458,17 +431,32 @@
 % Testing
 %
 \begin{frame}
-  \frametitle{Тестирование приложения}
-  {
-    \Large
-    \begin{itemize}
-      \setlength\itemsep{0.75em}
-      \item Модульные тесты
-      \item Интеграционные тесты
-      \item UI-тесты\\[1.25em]
-      \item \textbf{Beta-версии приложения для пользователей}\\[0.25em](с отзывами на форуме)
-    \end{itemize}
-  }
+  \frametitle{Тестирование и апробация приложения}
+  
+  \large
+  
+  \begin{itemize}
+    \setlength\itemsep{0.5em}
+    \item Модульные тесты
+    \item Функциональные тесты
+  \end{itemize}
+  \begin{center}
+    \vskip -0.5cm
+    \color{ifmoblue}{\rule{.5\textwidth}{0.5pt}}
+  \end{center}
+  \vskip -0.2cm
+  \begin{itemize}
+    \setlength\itemsep{0.5em}
+    \item[1.] Полевые испытания
+    \item[2.] Beta-версии приложения для пользователей (с отзывами на форуме)\\
+              Получение отзывов инициативной группы опытных геодезистов
+    \item[3.] Разработанное приложение принято основной рабочей версией веб-интерфейса для Reach и~Reach~RS
+  \end{itemize}
+  \vskip -0.2cm
+  \begin{figure}[b]
+    \centering
+    \includegraphics[width=.5\paperwidth]{../img/presentation/luke_wijnberg}
+  \end{figure}
 \end{frame}
 
 
@@ -477,28 +465,34 @@
 %
 \begin{frame}
   \frametitle{Результаты}
-  {
-    \large
-    \begin{itemize}
-      \setlength\itemsep{1em}
-      \item[1.] Изучен процесс работы с~GPS-приёмниками в~режиме RTK
-      \item[2.] Создано веб-приложение для работы с~программным комплексом RTKLIB, которое соответствует всем предъявленным требованиям
-      \item[3.] Созданное приложение протестировано и~внедрено
-      \item[4.] Налажен процесс общения с~пользователями, что позволяет получать отзывы и~отчёты об ошибках
-      \item[5.] Создано два канала получения обновлений приложения
-    \end{itemize}
-  }
+
+  \large
+
+  \begin{itemize}
+    \setlength\itemsep{0.5em}
+    \item[1.] Проведён обзор областей применения высокоточного позиционирования;
+    \item[2.] Рассмотрены проблемы доступности профессионального геодезического оборудования и слабой распространённости пакета RTKLIB;
+    \item[3.] Проведён анализ применения веб-интерфейсов для взаимодействия с~устройствами без органов управления;
+    \item[4.] Создано веб-приложение для взаимодействия пользователя с~программным пакетом RTKLIB, встроенным в~устройства Emlid Reach и~Emlid Reach~RS;
+    \item[5.] Созданное приложение протестировано и~успешно внедрено;
+    \item[6.] Налажен процесс общения с~пользователями, что позволяет получать отзывы, пожелания и~отчёты об ошибках;
+    \item[7.] Создано два канала получения обновлений приложения.
+  \end{itemize}
 \end{frame}
 
 
 %
 % The End
 %
-\begin{frame}[c]
-\begin{center}
-  \Huge\bfseries
-  \color{ifmoblue}{Спасибо за внимание}
-\end{center}
-\end{frame}
+{
+  \setbeamertemplate{footline}{}
+
+  \begin{frame}[c]
+    \begin{center}
+      \Huge\bfseries
+      \color{ifmoblue}{Спасибо за внимание}
+    \end{center}
+  \end{frame}
+}
 
 \end{document}
