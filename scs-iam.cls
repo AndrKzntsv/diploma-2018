@@ -416,6 +416,7 @@
 %                                    Tables                                    %
 % ---------------------------------------------------------------------------- %
 
+\RequirePackage{array}
 \RequirePackage{ctable}
 \RequirePackage{makecell}
 
