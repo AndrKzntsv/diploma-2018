@@ -527,6 +527,14 @@
   20\,\underline{\hspace{0.75cm}}\,г.
 }
 
+\newcommand{\specialdatetemplate}{
+  <<\,\underline{\makebox[1cm][s]{\strut}}\,>>
+  \hspace{0.2cm}
+  \underline{\makebox[2.5cm][s]{\strut}}
+  \hspace{0.2cm}
+  20\,\underline{\makebox[0.75cm][s]{\strut}}\,г.
+}
+
 \renewcommand{\strut}{
   \rule[-.12\baselineskip]{0pt}{\baselineskip}
 }
