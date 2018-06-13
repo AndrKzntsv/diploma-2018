@@ -9,80 +9,83 @@
 
 \usepackage{pgfplots}
 
-% \usepackage{polyglossia}
-% \setdefaultlanguage[spelling=modern]{russian}
-% \newfontfamily{\cyrillicfont}{Fira Sans}
-% \newfontfamily{\cyrillicfontsf}{Fira Sans}
-% \newfontfamily{\cyrillicfonttt}{Fira Mono}
+\usepackage{polyglossia}
+\setdefaultlanguage[spelling=modern]{russian}
+\newfontfamily{\cyrillicfont}{PT Astra Sans}
+\newfontfamily{\cyrillicfontsf}{PT Astra Sans}
+\newfontfamily{\cyrillicfonttt}{PT Mono}
 
-\usetikzlibrary{arrows.meta,fit}
+\usetikzlibrary{arrows.meta,fit,calc}
 
 \tikzset{scheme part/.style={
   black,
+  very thick,
   inner sep=0pt,
   draw=black,
-  font=\LARGE
+  font=\huge,
+  rounded corners=2mm
 }}
 
 \begin{document}
 \begin{tikzpicture}[domain=0:20,samples=300]
   % \draw[step=1cm,black,thin,opacity=0.2,dashed] (23.05,-0.05) grid (-0.05,15.05);
-  \draw[opacity=0] (23.05,-0.05) grid (-0.05,15.05);
+  \draw[opacity=0] (24.05,-0.05) grid (-0.05,15.05);
 
-  \draw (0,0) -- (0,15) -- (23,15) -- (23,0) -- (0,0);
+  % \draw (0,0) -- (0,15) -- (23,15) -- (23,0) -- (0,0);
 
   % Server
   \node[
     scheme part,
-    fit={(1,14) (9,3)},
-    dashed
+    fit={(1,14) (10,3)},
+    dashed,
+    gray
   ] (rect) {};
 
-  \draw[scheme part]
-    (2,13) rectangle (8,11)
+  \draw[scheme part, gray]
+    (2,13) rectangle (9,11)
     node[align=center, pos=.5] {Демоны и сервисы};
 
-  \draw[scheme part]
-    (2,10) rectangle (8,7)
-    node[align=center, pos=.5, yshift=-3pt] {Flask + \\ Socket.io сервер};
+  \draw[scheme part, gray]
+    (2,10) rectangle (9,7)
+    node[align=center, pos=.5, yshift=-3pt] {Python (Flask) + \\ Socket.io сервер};
 
-  \draw[scheme part]
-    (2,6) rectangle (8,4)
+  \draw[scheme part, gray]
+    (2,6) rectangle (9,4)
     node[align=center, pos=.5] {RTKLIB};
 
-  \draw[-{Latex[length=3mm]},thick] (3,10) -- (3,11);
-  \draw[-{Latex[length=3mm]},thick] (7,11) -- (7,10);
+  \draw[-{Latex[length=3.5mm]}, ultra thick, gray] (3,10) -- (3,11);
+  \draw[-{Latex[length=3.5mm]}, ultra thick, gray] (8,11) -- (8,10);
   
-  \draw[-{Latex[length=3mm]},thick] (3,6) -- (3,7);
-  \draw[-{Latex[length=3mm]},thick] (7,7) -- (7,6);
+  \draw[-{Latex[length=3.5mm]}, ultra thick, gray] (3,6) -- (3,7);
+  \draw[-{Latex[length=3.5mm]}, ultra thick, gray] (8,7) -- (8,6);
 
   % Client
   \node[
     scheme part,
-    fit={(11,11) (22,6)},
+    fit={(12,11) (23,6)},
     dashed
   ] (rect) {};
 
   \draw[scheme part]
-    (12,10) rectangle (16,7)
+    (13,10) rectangle (17,7)
     node[align=center, pos=.5, yshift=-1pt] {Socket.io \\ клиент};
 
   \draw[scheme part]
-    (17,10) rectangle (21,7)
-    node[align=center, pos=.5] {Vue.js};
+    (18,10) rectangle (22,7)
+    node[align=center, pos=.5] {JS (Vue.js) \\ HTML};
 
-  \draw[-{Latex[length=3mm]},thick] (8,9.25) -- (12,9.25);
-  \draw[-{Latex[length=3mm]},thick] (12,7.75) -- (8,7.75);
+  \draw[-{Latex[length=3.5mm]}, ultra thick] (9,9.25) -- (13,9.25);
+  \draw[-{Latex[length=3.5mm]}, ultra thick] (13,7.75) -- (9,7.75);
 
-  \draw[-{Latex[length=3mm]},thick] (16,9.25) -- (17,9.25);
-  \draw[-{Latex[length=3mm]},thick] (17,7.75) -- (16,7.75);
+  \draw[-{Latex[length=3.5mm]}, ultra thick] (17,9.25) -- (18,9.25);
+  \draw[-{Latex[length=3.5mm]}, ultra thick] (18,7.75) -- (17,7.75);
 
-  \draw [black,thick,decorate,decoration={brace,amplitude=15pt}]
-    (9,2.5)  -- (1,2.5) 
-    node [black,midway,below=20pt] {\Large Серверная часть};
+  \draw [black,ultra thick,decorate,decoration={brace,amplitude=15pt}, gray]
+    (10,2.5)  -- (1,2.5) 
+    node [black,midway,below=20pt, gray] {\Large Серверная часть};
 
-  \draw [black,thick,decorate,decoration={brace,amplitude=15pt}]
-    (22,2.5)  -- (11,2.5) 
+  \draw [black,ultra thick,decorate,decoration={brace,amplitude=15pt}]
+    (23,2.5)  -- (12,2.5) 
     node [black,midway,below=20pt] {\Large Клиентская часть};
 \end{tikzpicture}
 \end{document}
