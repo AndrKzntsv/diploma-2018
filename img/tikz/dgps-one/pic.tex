@@ -164,7 +164,7 @@
     
     \draw[very thick,dashed] (sat) -- ($ (rover) + (-0.75,0.98) $);
     \draw[very thick,dashed] (sat) -- ($ (base) + (-0.25,1.5) $);
-    \draw[very thick,latex'-latex',shorten <=3pt,shorten >=3pt] (rover) -- node[above,rotate=6] {100\,-\,200 км} (base);
+    \draw[very thick,latex'-latex',shorten <=3pt,shorten >=3pt] (rover) -- node[above,rotate=6,font=\Large] {$\sim$100 км} (base);
   \end{pgfonlayer}
   
   \begin{pgfonlayer}{background}
@@ -174,7 +174,7 @@
     \draw (9,0) -- (0,0) -- (0,15) -- (20,15) -- (20,5.5);
     
     \draw (20,8) arc (90:140.5:22cm);
-    \draw[dashed] (20,8.75) arc (90:142:22.75cm);
+    % \draw[dashed] (20,8.75) arc (90:142:22.75cm);
     \draw[dashed] (20,10) arc (90:144.2:24cm);
     
     \draw[gray!60,dash pattern=on 10pt off 20pt] (20,7.75) arc (90:140:21.75cm);
